@@ -3,18 +3,18 @@ import { computed } from 'vue'
 import { cn } from '@/lib/utils'
 
 interface Props {
-  class?: string
+    class?: string
 }
 
 const props = defineProps<Props>()
 
 const classes = computed(() =>
-  cn('text-sm text-muted-foreground', props.class),
+    cn('text-sm text-muted-foreground', props.class),
 )
 </script>
 
 <template>
-  <p :class="classes">
-    <slot />
-  </p>
+    <p :class="classes">
+        <slot />
+    </p>
 </template>

@@ -3,23 +3,23 @@ import { computed } from 'vue'
 import { cn } from '@/lib/utils'
 
 interface Props {
-  class?: string
-  orientation?: 'horizontal' | 'vertical'
+    class?: string
+    orientation?: 'horizontal' | 'vertical'
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  orientation: 'horizontal',
+    orientation: 'horizontal',
 })
 
 const classes = computed(() =>
-  cn(
-    'shrink-0 bg-border',
-    props.orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',
-    props.class,
-  ),
+    cn(
+        'shrink-0 bg-border',
+        props.orientation === 'horizontal' ? 'h-px w-full' : 'h-full w-px',
+        props.class,
+    ),
 )
 </script>
 
 <template>
-  <div role="separator" :class="classes" />
+    <div role="separator" :class="classes" />
 </template>
