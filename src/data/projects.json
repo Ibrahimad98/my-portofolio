@@ -1,0 +1,129 @@
+{
+  "owner": {
+    "name": "Adam Ibrahim",
+    "title": "Full-Stack Developer",
+    "bio": "Passionate full-stack developer with expertise in building modern web applications. I love crafting clean, scalable, and user-friendly solutions that make a real impact.",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&auto=format&q=80",
+    "email": "adam@example.com",
+    "github": "https://github.com/Ibrahimad98",
+    "linkedin": "https://linkedin.com/in/adamibrahim",
+    "location": "Indonesia"
+  },
+  "projects": [
+    {
+      "slug": "ecommerce-platform",
+      "title": "E-Commerce Platform",
+      "description": "A modern full-stack e-commerce platform with real-time inventory management, payment integration, and responsive design.",
+      "overview": "Built from the ground up, this e-commerce platform features a Vue.js frontend with a Node.js backend. It includes user authentication, product catalog with advanced filtering, shopping cart, Stripe payment integration, and an admin dashboard for inventory management. The application uses WebSocket for real-time stock updates and implements lazy loading for optimal performance.",
+      "techStack": ["Vue.js", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS", "Docker"],
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "E-Commerce Dashboard",
+          "caption": "Admin dashboard with real-time analytics and inventory overview"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Product Catalog",
+          "caption": "Product catalog with advanced search and filtering capabilities"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Analytics View",
+          "caption": "Comprehensive analytics dashboard showing sales trends"
+        }
+      ],
+      "liveUrl": "https://ecommerce-demo.example.com",
+      "repoUrl": "https://github.com/Ibrahimad98/ecommerce-platform",
+      "featured": true,
+      "category": "Full-Stack",
+      "completedAt": "2025-12-15"
+    },
+    {
+      "slug": "task-management-app",
+      "title": "Task Management App",
+      "description": "A collaborative task management application with real-time updates, drag-and-drop kanban boards, and team workspace features.",
+      "overview": "This task management application was designed for teams to organize and track their work efficiently. Features include kanban-style boards with drag-and-drop functionality, real-time collaboration via WebSockets, file attachments, comment threads, deadline reminders, and customizable workflows. The app supports multiple workspaces and role-based access control.",
+      "techStack": ["React", "TypeScript", "Firebase", "Tailwind CSS", "Framer Motion"],
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Kanban Board",
+          "caption": "Drag-and-drop kanban board for visual task management"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Task Details",
+          "caption": "Detailed task view with comments, attachments, and activity log"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Team Collaboration",
+          "caption": "Team workspace with member management and role assignments"
+        }
+      ],
+      "liveUrl": "https://taskapp-demo.example.com",
+      "repoUrl": "https://github.com/Ibrahimad98/task-management",
+      "featured": true,
+      "category": "Web App",
+      "completedAt": "2025-09-20"
+    },
+    {
+      "slug": "weather-dashboard",
+      "title": "Weather Dashboard",
+      "description": "A beautiful weather dashboard with interactive maps, 7-day forecasts, and location-based weather alerts.",
+      "overview": "An elegant weather application that provides accurate, real-time weather data. Features include interactive weather maps powered by Mapbox, 7-day forecasts with hourly breakdowns, severe weather alerts, air quality index monitoring, and the ability to save favorite locations. The UI features smooth animations and beautiful data visualizations using D3.js charts.",
+      "techStack": ["Vue.js", "D3.js", "Mapbox", "OpenWeather API", "Tailwind CSS"],
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Weather Overview",
+          "caption": "Main dashboard showing current conditions and weekly forecast"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Weather Map",
+          "caption": "Interactive weather map with radar and satellite overlays"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1561484930-998b6a7b22e8?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Forecast Details",
+          "caption": "Detailed hourly forecast with temperature and precipitation charts"
+        }
+      ],
+      "liveUrl": "https://weather-demo.example.com",
+      "repoUrl": "https://github.com/Ibrahimad98/weather-dashboard",
+      "featured": true,
+      "category": "Dashboard",
+      "completedAt": "2025-06-10"
+    },
+    {
+      "slug": "portfolio-cms",
+      "title": "Portfolio CMS",
+      "description": "A headless CMS built for creative professionals to manage and showcase their portfolio with ease.",
+      "overview": "A custom-built content management system tailored for creative professionals. It provides an intuitive admin interface for managing portfolio pieces, blog posts, and client testimonials. Features include markdown editing with live preview, image optimization with automatic WebP conversion, SEO meta management, and a GraphQL API for flexible frontend integration.",
+      "techStack": ["Next.js", "GraphQL", "MongoDB", "AWS S3", "Tailwind CSS"],
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "CMS Dashboard",
+          "caption": "Admin dashboard with content overview and quick actions"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Content Editor",
+          "caption": "Rich markdown editor with live preview and media library"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Analytics",
+          "caption": "Built-in analytics showing portfolio views and engagement metrics"
+        }
+      ],
+      "repoUrl": "https://github.com/Ibrahimad98/portfolio-cms",
+      "featured": false,
+      "category": "Full-Stack",
+      "completedAt": "2025-03-05"
+    }
+  ]
+}
