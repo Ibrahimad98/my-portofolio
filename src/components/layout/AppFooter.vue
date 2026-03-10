@@ -12,7 +12,7 @@ const { owner } = storeToRefs(store)
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-sm text-muted-foreground">
-                    &copy; {{ new Date().getFullYear() }} {{ owner?.name ?? 'Adam Ibrahim' }}. All rights reserved.
+                    &copy; {{ new Date().getFullYear() }} {{ owner?.name ?? 'Portfolio' }}. All rights reserved.
                 </p>
                 <div class="flex items-center gap-3">
                     <a v-if="owner?.github" :href="owner.github" target="_blank" rel="noopener noreferrer"

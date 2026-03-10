@@ -32,7 +32,8 @@ watch(
     project,
     (p) => {
         if (p) {
-            document.title = `${p.title} — Adam Ibrahim`
+            const ownerName = store.owner?.name ?? 'Portfolio'
+            document.title = `${p.title} — ${ownerName}`
         }
     },
     { immediate: true },
@@ -78,7 +79,8 @@ watch(
                         <Calendar class="size-3.5" />
                         <span>{{ new Date(project.completedAt).toLocaleDateString('en-US', {
                             year: 'numeric', month:
-                            'long' }) }}</span>
+                                'long'
+                        }) }}</span>
                     </div>
                 </div>
 

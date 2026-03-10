@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { usePortfolioStore } from '@/stores/portfolio'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,20 +8,20 @@ const router = createRouter({
       path: '/',
       name: 'dashboard',
       component: () => import('@/views/DashboardView.vue'),
-      meta: { title: 'Adam Ibrahim — Portfolio' },
+      meta: { titleTemplate: '{name} — Portfolio' },
     },
     {
       path: '/projects',
       name: 'projects',
       component: () => import('@/views/ProjectsView.vue'),
-      meta: { title: 'Projects — Adam Ibrahim' },
+      meta: { titleTemplate: 'Projects — {name}' },
     },
     {
       path: '/projects/:slug',
       name: 'project-detail',
       component: () => import('@/views/ProjectDetailView.vue'),
       props: true,
-      meta: { title: 'Project Details — Adam Ibrahim' },
+      meta: { titleTemplate: 'Project Details — {name}' },
     },
     {
       path: '/:pathMatch(.*)*',
@@ -34,9 +35,12 @@ const router = createRouter({
   },
 })
 
-// Update page title on route change
+// Update page title on route change using owner name from store
 router.beforeEach((to) => {
-  document.title = (to.meta.title as string) ?? 'Adam Ibrahim — Portfolio'
+  const store = usePortfolioStore()
+  const ownerName = store.owner?.name ?? 'Portfolio'
+  const template = (to.meta.titleTemplate as string) ?? '{name} — Portfolio'
+  document.title = template.replace('{name}', ownerName)
 })
 
 export default router

@@ -54,7 +54,7 @@ const { owner, featuredProjects, totalProjects, categories, techStackSummary, lo
                             <div>
                                 <p class="text-sm font-medium text-primary mb-1">Hello, I'm</p>
                                 <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
-                                    {{ owner?.name ?? 'Adam Ibrahim' }}
+                                    {{ owner?.name }}
                                 </h1>
                                 <p class="text-xl sm:text-2xl text-muted-foreground mt-2">
                                     {{ owner?.title ?? 'Full-Stack Developer' }}
