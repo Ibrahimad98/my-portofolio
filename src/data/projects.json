@@ -1,0 +1,229 @@
+{
+  "owner": {
+    "name": "Ibrahim Adam",
+    "title": "Software Engineer",
+    "bio": "A dedicated and collaborative Software Engineer with three years of experience specializing in backend and full-stack JavaScript development. Currently supporting large-scale enterprise applications at PT Pegadaian, including managing an attendance system utilized by over 20,000 users. Demonstrated ability to work closely with cross-functional teams, such as IT Security and Infrastructure, to ensure smooth and secure application deliveries.",
+    "avatar": "/profile-photo.jpg",
+    "email": "ibrahim.ad90@gmail.com",
+    "github": "https://github.com/Ibrahimad98",
+    "linkedin": "https://www.linkedin.com/in/ibrahim-adam-5345781a1/",
+    "location": "Cijantung, East Jakarta",
+    "phone": "+62 812-xxxx-xxxx",
+    "skills": [
+      "Vue.js",
+      "React",
+      "React Native",
+      "Node.js",
+      "Express.js",
+      "TypeScript",
+      "JavaScript",
+      "Pinia",
+      "Vuex",
+      "Redux",
+      "REST API",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Tailwind CSS",
+      "GCP",
+      "OCP",
+      "CI/CD",
+      "JWT",
+      "OAuth",
+      "Git",
+      "Docker"
+    ],
+    "experience": [
+      {
+        "company": "PT Pegadaian",
+        "role": "Backend Engineer",
+        "period": "Oct 2024 — Present",
+        "description": "Supporting large-scale enterprise applications including an attendance management system for 20,000+ users and a Customer Experience Management dashboard.",
+        "highlights": [
+          "PIC for ARALIA, a vendor attendance management app used by 20,000+ users across Indonesia",
+          "Developed CEM dashboard using Vue.js to visualize WhatsApp-based survey feedback",
+          "Implemented iLeads × LinkedIn Learning integration for automated training data synchronization",
+          "Coordinated with IT Security, Infrastructure, and Release Management for secure deployments",
+          "Led code reviews from vendors ensuring code quality and security compliance"
+        ]
+      },
+      {
+        "company": "AIDO Health",
+        "role": "Associate Software Engineer",
+        "period": "May 2024 — Sep 2024",
+        "description": "Developed web-based clinic and hospital management applications supporting patient data administration and healthcare interoperability.",
+        "highlights": [
+          "Built and integrated patient data management systems with SATUSEHAT for standardized health data exchange",
+          "Developed clinic and hospital management applications using Vue.js and Node.js",
+          "Ensured compliance with national healthcare interoperability requirements",
+          "Supported patient data administration, medical records, and operational workflows"
+        ]
+      },
+      {
+        "company": "Bithealth (Siloam Hospitals Group)",
+        "role": "Associate Software Engineer",
+        "period": "Mar 2023 — May 2024",
+        "description": "Designed and developed management systems for Siloam Hospitals to handle doctor profiles, schedules, and hospital information across multiple locations.",
+        "highlights": [
+          "Built Doctor Management System managing profiles and schedules across multiple hospital locations",
+          "Integrated data from existing hospital databases for real-time updates and consistency",
+          "Developed interactive administrative dashboard and CMS for hospital information management",
+          "Worked with Vue.js, Node.js, PostgreSQL, and Redis for scalable healthcare solutions"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Hacktiv8",
+        "degree": "Graduate — Full Stack JavaScript",
+        "period": "Aug 2022 — Dec 2022",
+        "description": "Completed a 16-week intensive full-stack web development bootcamp focusing on JavaScript technologies including Node.js, Vue.js, React, React Native, PostgreSQL, MongoDB, and Redis. Developed RESTful APIs with authentication (bcrypt, JWT) and caching strategies.",
+        "score": "82.3/100"
+      },
+      {
+        "institution": "Yogyakarta State University",
+        "degree": "Bachelor of Sport Education",
+        "period": "Aug 2017 — Dec 2021",
+        "description": "Graduated Cum Laude with a GPA of 3.62/4.00. Developed strong discipline, teamwork, and analytical skills that translate into a methodical approach to software engineering.",
+        "score": "GPA 3.62/4.00 — Cum Laude"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "slug": "cem-dashboard",
+      "title": "Customer Experience Management Dashboard",
+      "description": "A Vue.js dashboard to visualize WhatsApp-based customer survey feedback across multiple product lines at Pegadaian, enabling business teams to monitor satisfaction trends.",
+      "overview": "Developed a Customer Experience Management (CEM) dashboard using Vue.js to visualize WhatsApp-based customer survey feedback across multiple product lines at Pegadaian. The dashboard enables business teams to monitor satisfaction trends and gain actionable insights for service improvement. Built with a focus on intuitive data visualization and real-time feedback monitoring, helping stakeholders make data-driven decisions to enhance customer experience across the organization.",
+      "techStack": ["Vue.js", "Pinia", "REST API", "Tailwind CSS", "GCP"],
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "CEM Dashboard Overview",
+          "caption": "Main dashboard showing customer satisfaction trends across product lines"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Survey Analytics",
+          "caption": "Detailed analytics view of WhatsApp survey feedback data"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Insights Panel",
+          "caption": "Actionable insights panel for business team decision-making"
+        }
+      ],
+      "featured": true,
+      "category": "Dashboard",
+      "completedAt": "2025-06-01"
+    },
+    {
+      "slug": "aralia-attendance-system",
+      "title": "ARALIA — Vendor Attendance Management",
+      "description": "Pegadaian's vendor attendance management application supporting 20,000+ users across Indonesia with secure and scalable architecture.",
+      "overview": "Served as the Person in Charge (PIC) for ARALIA, Pegadaian's vendor attendance management application supporting 20,000+ users across Indonesia. Led code reviews from vendors and coordinated with IT Security, Infrastructure, Release Management, and business users to deliver secure, reliable, and scalable application improvements. Ensured smooth deployments and maintained high availability for this mission-critical enterprise system.",
+      "techStack": ["Vue.js", "Node.js", "PostgreSQL", "OCP", "CI/CD", "JWT"],
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Attendance Dashboard",
+          "caption": "Enterprise attendance dashboard managing 20,000+ vendor employees"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "User Management",
+          "caption": "User and role management panel for nationwide deployment"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Report Generation",
+          "caption": "Automated attendance reports and compliance monitoring"
+        }
+      ],
+      "featured": true,
+      "category": "Enterprise",
+      "completedAt": "2025-03-01"
+    },
+    {
+      "slug": "ileads-linkedin-integration",
+      "title": "iLeads × LinkedIn Learning Integration",
+      "description": "Automated synchronization between Pegadaian's internal iLeads learning platform and LinkedIn Learning to improve employee training visibility.",
+      "overview": "Implemented an integration between the internal iLeads learning platform and LinkedIn Learning, enabling automated synchronization of learning data and improving visibility of employee training progress across the organization. This integration streamlined the tracking of employee professional development, providing managers and HR with consolidated insights into learning activities and course completions from both internal and external platforms.",
+      "techStack": ["Node.js", "REST API", "PostgreSQL", "OAuth", "GCP"],
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Learning Dashboard",
+          "caption": "Consolidated learning progress dashboard from iLeads and LinkedIn"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Sync Overview",
+          "caption": "Real-time synchronization status and data flow monitoring"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Training Analytics",
+          "caption": "Employee training progress analytics and reporting"
+        }
+      ],
+      "featured": true,
+      "category": "Integration",
+      "completedAt": "2025-01-15"
+    },
+    {
+      "slug": "doctor-management-system",
+      "title": "Doctor Management System — Siloam Hospitals",
+      "description": "A management system for Siloam Hospitals to handle doctor profiles, schedules, and hospital information across multiple locations in Indonesia.",
+      "overview": "Designed and developed a Doctor Management System for Siloam Hospitals to manage doctor profiles, schedules, and hospital-related information across multiple locations in Indonesia. Integrated data from existing hospital databases to enable real-time updates and consistency across systems, while developing an interactive administrative dashboard and a content management system (CMS) to streamline management of doctor and hospital information.",
+      "techStack": ["Vue.js", "Node.js", "PostgreSQL", "REST API", "Redis"],
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Doctor Profiles",
+          "caption": "Doctor profile management across multiple hospital locations"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Schedule Management",
+          "caption": "Interactive scheduling dashboard for doctor appointments"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Admin CMS",
+          "caption": "Content management system for hospital and doctor information"
+        }
+      ],
+      "featured": true,
+      "category": "Healthcare",
+      "completedAt": "2024-04-01"
+    },
+    {
+      "slug": "clinic-management-app",
+      "title": "Clinic Management Application",
+      "description": "Web-based clinic and hospital management application supporting patient data administration, medical records, and operational workflows.",
+      "overview": "Developed web-based clinic and hospital management applications to support patient data administration, medical records, and operational workflows across healthcare facilities in Indonesia. Built and integrated patient data management systems with SATUSEHAT, enabling standardized health data exchange and supporting compliance with national healthcare interoperability requirements.",
+      "techStack": ["Vue.js", "Node.js", "MongoDB", "SATUSEHAT API", "REST API"],
+      "images": [
+        {
+          "src": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Clinic Dashboard",
+          "caption": "Patient data administration and clinic operations overview"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Medical Records",
+          "caption": "Digital medical records management with SATUSEHAT integration"
+        },
+        {
+          "src": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop&auto=format&q=80",
+          "alt": "Workflow Management",
+          "caption": "Operational workflow management for healthcare facilities"
+        }
+      ],
+      "featured": false,
+      "category": "Healthcare",
+      "completedAt": "2024-08-01"
+    }
+  ]
+}
