@@ -24,6 +24,12 @@ const router = createRouter({
       meta: { titleTemplate: 'Project Details — {name}' },
     },
     {
+      path: '/about',
+      name: 'about',
+      component: () => import('@/views/AboutView.vue'),
+      meta: { titleTemplate: 'About — {name}' },
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
       redirect: '/',

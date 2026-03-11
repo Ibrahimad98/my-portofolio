@@ -14,6 +14,7 @@ const { owner } = storeToRefs(store)
 const navLinks = [
     { name: 'Dashboard', to: '/' },
     { name: 'Projects', to: '/projects' },
+    { name: 'About', to: '/about' },
 ]
 
 function isActive(path: string) {
