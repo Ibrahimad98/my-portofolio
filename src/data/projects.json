@@ -96,19 +96,22 @@
       "description": "A Vue.js dashboard to visualize WhatsApp-based customer survey feedback across multiple product lines at Pegadaian, enabling business teams to monitor satisfaction trends.",
       "overview": "Developed a Customer Experience Management (CEM) dashboard using Vue.js to visualize WhatsApp-based customer survey feedback across multiple product lines at Pegadaian. The dashboard enables business teams to monitor satisfaction trends and gain actionable insights for service improvement. Built with a focus on intuitive data visualization and real-time feedback monitoring, helping stakeholders make data-driven decisions to enhance customer experience across the organization.",
       "techStack": ["Vue.js", "Pinia", "REST API", "Tailwind CSS", "GCP"],
-      "images": [
+      "media": [
         {
-          "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&auto=format&q=80",
+          "driveFileId": "15XiKISCgmJF2pVKTaz_nX5NAJOLCWX1p",
+          "src": "",
           "alt": "CEM Dashboard Overview",
           "caption": "Main dashboard showing customer satisfaction trends across product lines"
         },
         {
-          "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&auto=format&q=80",
+          "src": "",
+          "driveFileId": "1mQ0fAWpCAXITioOhPr_1Gqxx2NwLFjit",
           "alt": "Survey Analytics",
           "caption": "Detailed analytics view of WhatsApp survey feedback data"
         },
         {
-          "src": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=500&fit=crop&auto=format&q=80",
+          "src": "",
+          "driveFileId": "1kg0mH6QwH8hm1O6uRUQf6Ye6wkwKwz-5",
           "alt": "Insights Panel",
           "caption": "Actionable insights panel for business team decision-making"
         }
@@ -123,7 +126,7 @@
       "description": "Pegadaian's vendor attendance management application supporting 20,000+ users across Indonesia with secure and scalable architecture.",
       "overview": "Served as the Person in Charge (PIC) for ARALIA, Pegadaian's vendor attendance management application supporting 20,000+ users across Indonesia. Led code reviews from vendors and coordinated with IT Security, Infrastructure, Release Management, and business users to deliver secure, reliable, and scalable application improvements. Ensured smooth deployments and maintained high availability for this mission-critical enterprise system.",
       "techStack": ["Vue.js", "Node.js", "PostgreSQL", "OCP", "CI/CD", "JWT"],
-      "images": [
+      "media": [
         {
           "src": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop&auto=format&q=80",
           "alt": "Attendance Dashboard",
@@ -150,7 +153,7 @@
       "description": "Automated synchronization between Pegadaian's internal iLeads learning platform and LinkedIn Learning to improve employee training visibility.",
       "overview": "Implemented an integration between the internal iLeads learning platform and LinkedIn Learning, enabling automated synchronization of learning data and improving visibility of employee training progress across the organization. This integration streamlined the tracking of employee professional development, providing managers and HR with consolidated insights into learning activities and course completions from both internal and external platforms.",
       "techStack": ["Node.js", "REST API", "PostgreSQL", "OAuth", "GCP"],
-      "images": [
+      "media": [
         {
           "src": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop&auto=format&q=80",
           "alt": "Learning Dashboard",
@@ -177,7 +180,7 @@
       "description": "A management system for Siloam Hospitals to handle doctor profiles, schedules, and hospital information across multiple locations in Indonesia.",
       "overview": "Designed and developed a Doctor Management System for Siloam Hospitals to manage doctor profiles, schedules, and hospital-related information across multiple locations in Indonesia. Integrated data from existing hospital databases to enable real-time updates and consistency across systems, while developing an interactive administrative dashboard and a content management system (CMS) to streamline management of doctor and hospital information.",
       "techStack": ["Vue.js", "Node.js", "PostgreSQL", "REST API", "Redis"],
-      "images": [
+      "media": [
         {
           "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=500&fit=crop&auto=format&q=80",
           "alt": "Doctor Profiles",
@@ -204,7 +207,7 @@
       "description": "Web-based clinic and hospital management application supporting patient data administration, medical records, and operational workflows.",
       "overview": "Developed web-based clinic and hospital management applications to support patient data administration, medical records, and operational workflows across healthcare facilities in Indonesia. Built and integrated patient data management systems with SATUSEHAT, enabling standardized health data exchange and supporting compliance with national healthcare interoperability requirements.",
       "techStack": ["Vue.js", "Node.js", "MongoDB", "SATUSEHAT API", "REST API"],
-      "images": [
+      "media": [
         {
           "src": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&h=500&fit=crop&auto=format&q=80",
           "alt": "Clinic Dashboard",

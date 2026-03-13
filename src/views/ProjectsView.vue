@@ -77,7 +77,7 @@ function clearFilters() {
                 <!-- Category Filter -->
                 <div class="flex flex-wrap items-center gap-1.5">
                     <button :class="[
-                        'px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer',
+                        'px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer btn-shine',
                         !selectedCategory
                             ? 'bg-primary text-primary-foreground'
                             : 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
@@ -85,7 +85,7 @@ function clearFilters() {
                         All
                     </button>
                     <button v-for="cat in categories" :key="cat" :class="[
-                        'px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer',
+                        'px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer btn-shine',
                         selectedCategory === cat
                             ? 'bg-primary text-primary-foreground'
                             : 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
@@ -105,3 +105,38 @@ function clearFilters() {
         </template>
     </div>
 </template>
+
+<style scoped>
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+            transparent 0%,
+            transparent 30%,
+            rgba(255, 255, 255, 0.35) 50%,
+            transparent 70%,
+            transparent 100%);
+    transform: translateX(-100%);
+    pointer-events: none;
+}
+
+.btn-shine:hover::after {
+    animation: btn-shine-sweep 0.6s ease-out forwards;
+}
+
+@keyframes btn-shine-sweep {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+</style>

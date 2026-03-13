@@ -23,7 +23,7 @@ defineProps<Props>()
             class="overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:-translate-y-1">
             <!-- Image Preview -->
             <div class="relative aspect-video overflow-hidden">
-                <img :src="project.images[0]?.src" :alt="project.images[0]?.alt ?? project.title"
+                <img :src="project.media[0]?.src" :alt="project.media[0]?.alt ?? project.title"
                     class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy" />
                 <div
@@ -43,10 +43,11 @@ defineProps<Props>()
             </CardHeader>
 
             <CardFooter class="flex flex-wrap gap-1.5">
-                <Badge v-for="tech in project.techStack.slice(0, 4)" :key="tech" variant="outline" class="text-[11px]">
+                <Badge v-for="tech in project.techStack.slice(0, 4)" :key="tech" variant="interactive"
+                    class="text-[11px]">
                     {{ tech }}
                 </Badge>
-                <Badge v-if="project.techStack.length > 4" variant="outline" class="text-[11px]">
+                <Badge v-if="project.techStack.length > 4" variant="interactive" class="text-[11px]">
                     +{{ project.techStack.length - 4 }}
                 </Badge>
             </CardFooter>

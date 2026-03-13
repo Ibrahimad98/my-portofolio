@@ -38,9 +38,11 @@ const { owner, loading } = storeToRefs(store)
                 <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
                     <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
                         <!-- Avatar -->
-                        <div class="shrink-0">
+                        <div class="shrink-0 relative group cursor-pointer">
+                            <div
+                                class="absolute -inset-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-2xl transition-all duration-500 group-hover:from-primary/25 group-hover:to-accent/25 group-hover:blur-3xl group-hover:scale-110" />
                             <img v-if="owner.avatar" :src="owner.avatar" :alt="owner.name"
-                                class="size-32 sm:size-40 rounded-2xl object-cover shadow-xl ring-4 ring-background" />
+                                class="relative size-36 sm:size-44 rounded-full object-cover transition-all duration-500 ease-out group-hover:scale-105 group-hover:rotate-2 group-hover:shadow-2xl" />
                         </div>
 
                         <!-- Bio -->
@@ -193,7 +195,7 @@ const { owner, loading } = storeToRefs(store)
                     <Card>
                         <CardContent class="pt-6">
                             <div class="flex flex-wrap gap-2">
-                                <Badge v-for="skill in owner.skills" :key="skill" variant="secondary"
+                                <Badge v-for="skill in owner.skills" :key="skill" variant="interactive"
                                     class="text-sm px-3 py-1.5">
                                     {{ skill }}
                                 </Badge>
