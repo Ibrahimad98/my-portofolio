@@ -7,7 +7,49 @@
     <title>Ibrahim Adam — Portfolio</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <!-- Static splash shown instantly before Vue mounts (prevents white flash) -->
+      <style>
+        .pre-splash {
+          position: fixed;
+          inset: 0;
+          z-index: 50;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #fff;
+        }
+        @media (prefers-color-scheme: dark) {
+          .pre-splash { background: #18181b; }
+          .pre-splash svg path { color: #fafafa; }
+        }
+        .pre-splash svg {
+          width: 100px;
+          height: 87px;
+          overflow: visible;
+        }
+        .pre-splash .hex-path {
+          stroke: #18181b;
+          fill: none;
+          stroke-width: 3;
+          stroke-linejoin: round;
+          stroke-dasharray: 440;
+          stroke-dashoffset: 440;
+          animation: pre-draw 0.6s ease-out forwards;
+        }
+        @media (prefers-color-scheme: dark) {
+          .pre-splash .hex-path { stroke: #fafafa; }
+        }
+        @keyframes pre-draw {
+          to { stroke-dashoffset: 0; }
+        }
+      </style>
+      <div class="pre-splash">
+        <svg viewBox="0 0 120 104" xmlns="http://www.w3.org/2000/svg">
+          <path class="hex-path" d="M60 2 L113.3 28 L113.3 76 L60 102 L6.7 76 L6.7 28 Z"/>
+        </svg>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

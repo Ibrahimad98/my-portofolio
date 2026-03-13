@@ -9,7 +9,7 @@ import CardContent from '@/components/ui/CardContent.vue'
 import Badge from '@/components/ui/Badge.vue'
 import Button from '@/components/ui/Button.vue'
 import Separator from '@/components/ui/Separator.vue'
-import ImageGallery from '@/components/portfolio/ImageGallery.vue'
+import MediaGallery from '@/components/portfolio/MediaGallery.vue'
 import {
     ArrowRight,
     Briefcase,
@@ -40,13 +40,11 @@ const { owner, featuredProjects, totalProjects, categories, techStackSummary, lo
                 <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
                     <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                         <!-- Avatar -->
-                        <div class="shrink-0">
-                            <div class="relative">
-                                <img v-if="owner?.avatar" :src="owner.avatar" :alt="owner.name"
-                                    class="size-32 sm:size-40 rounded-2xl object-cover shadow-xl ring-4 ring-background" />
-                                <div
-                                    class="absolute -bottom-2 -right-2 size-8 rounded-lg bg-green-500 border-4 border-background" />
-                            </div>
+                        <div class="shrink-0 relative group cursor-pointer">
+                            <div
+                                class="absolute -inset-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-2xl transition-all duration-500 group-hover:from-primary/25 group-hover:to-accent/25 group-hover:blur-3xl group-hover:scale-110" />
+                            <img v-if="owner?.avatar" :src="owner.avatar" :alt="owner.name"
+                                class="relative size-36 sm:size-44 rounded-full object-cover transition-all duration-500 ease-out group-hover:scale-105 group-hover:rotate-2 group-hover:shadow-2xl" />
                         </div>
 
                         <!-- Info -->
@@ -168,7 +166,7 @@ const { owner, featuredProjects, totalProjects, categories, techStackSummary, lo
                         ]">
                             <!-- Image Gallery Side -->
                             <div class="lg:w-1/2 p-6">
-                                <ImageGallery :images="project.images" />
+                                <MediaGallery :media="project.media" />
                             </div>
 
                             <!-- Content Side -->
@@ -186,7 +184,7 @@ const { owner, featuredProjects, totalProjects, categories, techStackSummary, lo
                                     <p class="text-muted-foreground leading-relaxed">{{ project.overview }}</p>
 
                                     <div class="flex flex-wrap gap-1.5">
-                                        <Badge v-for="tech in project.techStack" :key="tech" variant="outline">
+                                        <Badge v-for="tech in project.techStack" :key="tech" variant="interactive">
                                             {{ tech }}
                                         </Badge>
                                     </div>
@@ -217,7 +215,7 @@ const { owner, featuredProjects, totalProjects, categories, techStackSummary, lo
                     <p class="text-muted-foreground mb-8">Technologies I work with across my projects</p>
 
                     <div class="flex flex-wrap gap-2">
-                        <Badge v-for="tech in techStackSummary" :key="tech.name" variant="secondary"
+                        <Badge v-for="tech in techStackSummary" :key="tech.name" variant="interactive"
                             class="text-sm px-4 py-1.5">
                             {{ tech.name }}
                             <span class="ml-1.5 text-xs text-muted-foreground">({{ tech.count }})</span>
