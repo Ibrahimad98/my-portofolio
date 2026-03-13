@@ -1,7 +1,10 @@
-export interface ProjectImage {
+export interface ProjectMedia {
   src: string
   alt: string
   caption: string
+  type?: 'image' | 'video'
+  poster?: string
+  driveFileId?: string
 }
 
 export interface Project {
@@ -10,7 +13,7 @@ export interface Project {
   description: string
   overview: string
   techStack: string[]
-  images: ProjectImage[]
+  media: ProjectMedia[]
   liveUrl?: string
   repoUrl?: string
   featured: boolean

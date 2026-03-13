@@ -41,7 +41,7 @@ const sizeClasses: Record<ButtonSize, string> = {
 
 const classes = computed(() =>
     cn(
-        'inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*="size-"])]:size-4 cursor-pointer',
+        'inline-flex items-center justify-center gap-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*="size-"])]:size-4 cursor-pointer btn-shine',
         variantClasses[props.variant],
         sizeClasses[props.size],
         props.class,
@@ -54,3 +54,38 @@ const classes = computed(() =>
         <slot />
     </component>
 </template>
+
+<style scoped>
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+            transparent 0%,
+            transparent 30%,
+            rgba(255, 255, 255, 0.35) 50%,
+            transparent 70%,
+            transparent 100%);
+    transform: translateX(-100%);
+    pointer-events: none;
+}
+
+.btn-shine:hover::after {
+    animation: btn-shine-sweep 0.6s ease-out forwards;
+}
+
+@keyframes btn-shine-sweep {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+</style>

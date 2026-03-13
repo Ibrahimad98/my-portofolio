@@ -10,7 +10,7 @@ import CardContent from '@/components/ui/CardContent.vue'
 import Badge from '@/components/ui/Badge.vue'
 import Button from '@/components/ui/Button.vue'
 import Separator from '@/components/ui/Separator.vue'
-import ImageGallery from '@/components/portfolio/ImageGallery.vue'
+import MediaGallery from '@/components/portfolio/MediaGallery.vue'
 import {
     ArrowLeft,
     ExternalLink,
@@ -114,7 +114,7 @@ watch(
             <!-- Image Gallery -->
             <section class="mb-12">
                 <h2 class="text-xl font-semibold text-foreground mb-4">Gallery</h2>
-                <ImageGallery :images="project.images" />
+                <MediaGallery :media="project.media" />
             </section>
 
             <!-- Project Overview -->
@@ -135,7 +135,7 @@ watch(
             <section class="mb-12">
                 <h2 class="text-xl font-semibold text-foreground mb-4">Tech Stack</h2>
                 <div class="flex flex-wrap gap-2">
-                    <Badge v-for="tech in project.techStack" :key="tech" variant="secondary"
+                    <Badge v-for="tech in project.techStack" :key="tech" variant="interactive"
                         class="text-sm px-4 py-1.5">
                         {{ tech }}
                     </Badge>
