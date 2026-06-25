@@ -97,19 +97,22 @@
       "description": "A Vue.js + Node.js dashboard consolidating WhatsApp survey feedback across 5 product lines at Pegadaian into a single real-time view — cutting feedback-analysis turnaround from 7+ days to same-day.",
       "overview": "Built a Customer Experience Management (CEM) dashboard with Vue.js and Node.js that consolidates WhatsApp-based customer survey feedback across 5 product lines at Pegadaian into a single real-time view. It replaced manual spreadsheet reporting and cut feedback-analysis turnaround from 7+ days to same-day, giving business teams actionable insight into satisfaction trends and enabling data-driven decisions across the organization.",
       "techStack": ["Vue.js", "Node.js", "Pinia", "REST API", "GCP"],
-      "images": [
+      "media": [
         {
-          "src": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop&auto=format&q=80",
+          "driveFileId": "15XiKISCgmJF2pVKTaz_nX5NAJOLCWX1p",
+          "src": "",
           "alt": "CEM Dashboard Overview",
           "caption": "Main dashboard showing customer satisfaction trends across product lines"
         },
         {
-          "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&auto=format&q=80",
+          "src": "",
+          "driveFileId": "1mQ0fAWpCAXITioOhPr_1Gqxx2NwLFjit",
           "alt": "Survey Analytics",
           "caption": "Detailed analytics view of WhatsApp survey feedback data"
         },
         {
-          "src": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=500&fit=crop&auto=format&q=80",
+          "src": "",
+          "driveFileId": "1kg0mH6QwH8hm1O6uRUQf6Ye6wkwKwz-5",
           "alt": "Insights Panel",
           "caption": "Actionable insights panel for business team decision-making"
         }
@@ -124,7 +127,7 @@
       "description": "Pegadaian's company-wide attendance system used daily by 20,000+ employees. I own the backend quality gate — leading vendor code reviews and coordinating security, infrastructure, and release scheduling across 3 internal divisions.",
       "overview": "ARALIA is Pegadaian's company-wide attendance system, used daily by 20,000+ employees. As owner of the backend quality gate, I lead code reviews of all vendor deliverables and coordinate security sign-off, infrastructure capacity, and release scheduling across 3 internal divisions. I monitor production health via cloud-native observability on GCP (Cloud Run) and OpenShift / OCP, performing root-cause analysis on deployment and integration failures to keep this mission-critical system stable and highly available.",
       "techStack": ["Node.js", "PostgreSQL", "GCP (Cloud Run)", "OpenShift", "CI/CD", "JWT"],
-      "images": [
+      "media": [
         {
           "src": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop&auto=format&q=80",
           "alt": "Attendance Dashboard",
@@ -151,7 +154,7 @@
       "description": "Automated training-record synchronization between Pegadaian's internal iLeads platform and LinkedIn Learning via REST API — covering 20,000+ employees and eliminating ~1 full workday per week of manual HR data entry.",
       "overview": "Integrated the internal iLeads learning platform with LinkedIn Learning via REST API, automating training-record synchronization for 20,000+ employees and eliminating roughly one full workday per week of manual HR data entry. When the sync showed intermittent failures, I traced the cause through OCP deployment and service logs, identified the breaking integration step during rollout, and reconfigured the dev service to restore a smooth, reliable sync — giving managers and HR consolidated visibility into learning progress across internal and external platforms.",
       "techStack": ["Node.js", "REST API", "OAuth", "OpenShift", "PostgreSQL"],
-      "images": [
+      "media": [
         {
           "src": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop&auto=format&q=80",
           "alt": "Learning Dashboard",
@@ -178,7 +181,7 @@
       "description": "Doctor Management System for Siloam Hospitals — Indonesia's largest private network (40+ hospitals) — managing profiles, schedules, and multi-location assignments for 2,700+ general practitioners and specialists.",
       "overview": "Designed and built a Doctor Management System for Siloam Hospitals, Indonesia's largest private hospital network spanning 40+ hospitals, managing profiles, schedules, and multi-location assignments for 2,700+ general practitioners and specialists. I delivered the first centralized admin dashboard and CMS to unify previously siloed hospital databases — replacing a fragmented manual process with a single real-time source of physician scheduling data across all locations.",
       "techStack": ["Vue.js", "Node.js", "PostgreSQL", "Redis", "REST API"],
-      "images": [
+      "media": [
         {
           "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=500&fit=crop&auto=format&q=80",
           "alt": "Doctor Profiles",
@@ -205,7 +208,7 @@
       "description": "Clinic and hospital management modules (patient records, medical history, operational workflows) for AIDO's Hospita and Klinika products, deployed across 90+ healthcare clients with SATUSEHAT/FHIR interoperability.",
       "overview": "Developed clinic and hospital management modules — patient records, medical history, and operational workflows — for AIDO's Hospita and Klinika products, deployed across 90+ healthcare clients. I engineered the SATUSEHAT (Ministry of Health) integration using FHIR-based APIs, achieving national interoperability compliance and connecting an ecosystem of 1M+ patient records to the national health-data network.",
       "techStack": ["Node.js", "Vue.js", "MongoDB", "SATUSEHAT / FHIR", "REST API"],
-      "images": [
+      "media": [
         {
           "src": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&h=500&fit=crop&auto=format&q=80",
           "alt": "Clinic Dashboard",

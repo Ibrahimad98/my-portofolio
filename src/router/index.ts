@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { usePortfolioStore } from '@/stores/portfolio'
+import { startLoading, stopLoading } from '@/composables/useRouteLoading'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,10 +44,15 @@ const router = createRouter({
 
 // Update page title on route change using owner name from store
 router.beforeEach((to) => {
+  startLoading()
   const store = usePortfolioStore()
   const ownerName = store.owner?.name ?? 'Portfolio'
   const template = (to.meta.titleTemplate as string) ?? '{name} — Portfolio'
   document.title = template.replace('{name}', ownerName)
+})
+
+router.afterEach(() => {
+  stopLoading()
 })
 
 export default router

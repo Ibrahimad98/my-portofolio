@@ -2,6 +2,7 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import type { Project, PortfolioOwner } from '@/types/Portfolio'
 import { projectService } from '@/services/projectService'
+import { resolveDriveMedia } from '@/services/googleDriveService'
 
 export const usePortfolioStore = defineStore('portfolio', () => {
   const projects = ref<Project[]>([])
@@ -41,7 +42,11 @@ export const usePortfolioStore = defineStore('portfolio', () => {
     error.value = null
     try {
       const data = await projectService.getAll()
-      projects.value = data.projects
+      // Resolve any driveFileId references in media arrays to Google Drive URLs
+      projects.value = data.projects.map((p) => ({
+        ...p,
+        media: resolveDriveMedia(p.media),
+      }))
       owner.value = data.owner
     } catch (e) {
       error.value = e instanceof Error ? e.message : 'Failed to load portfolio data'

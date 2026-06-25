@@ -4,7 +4,7 @@ import { useRoute, RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { usePortfolioStore } from '@/stores/portfolio'
 import Button from '@/components/ui/Button.vue'
-import ImageGallery from '@/components/portfolio/ImageGallery.vue'
+import MediaGallery from '@/components/portfolio/MediaGallery.vue'
 import { ArrowLeft, ArrowUpRight } from 'lucide-vue-next'
 import BrandLoader from '@/components/layout/BrandLoader.vue'
 
@@ -93,7 +93,7 @@ watch(
             <!-- Gallery -->
             <section v-reveal class="mb-16">
                 <p class="eyebrow text-muted-foreground mb-6">(01) — Gallery</p>
-                <ImageGallery :images="project.images" />
+                <MediaGallery :media="project.media" />
             </section>
 
             <!-- Overview -->

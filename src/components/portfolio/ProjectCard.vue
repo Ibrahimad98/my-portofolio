@@ -16,9 +16,9 @@ function year(date: string) {
 
 <template>
     <RouterLink :to="`/projects/${project.slug}`" class="group block border border-border bg-card transition-colors hover:border-foreground">
-        <!-- Image -->
+        <!-- Media preview -->
         <div class="relative aspect-[4/3] overflow-hidden border-b border-border">
-            <img :src="project.images[0]?.src" :alt="project.images[0]?.alt ?? project.title"
+            <img :src="project.media[0]?.src" :alt="project.media[0]?.alt ?? project.title"
                 class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 loading="lazy" />
             <span
