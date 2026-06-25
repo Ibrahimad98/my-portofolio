@@ -1,91 +1,92 @@
 {
   "owner": {
     "name": "Ibrahim Adam",
-    "title": "Software Engineer",
-    "bio": "A dedicated and collaborative Software Engineer with three years of experience specializing in backend and full-stack JavaScript development. Currently supporting large-scale enterprise applications at PT Pegadaian, including managing an attendance system utilized by over 20,000 users. Demonstrated ability to work closely with cross-functional teams, such as IT Security and Infrastructure, to ensure smooth and secure application deliveries.",
+    "title": "Backend Engineer · Node.js / JavaScript",
+    "bio": "Backend Engineer with 3+ years shipping production systems across healthcare and state-owned financial services. I own backend quality gates and cloud observability (OpenShift / GCP) for platforms serving 20,000+ users, and have delivered national health-data interoperability (SATUSEHAT/FHIR) and hospital systems for Indonesia's largest hospital group. Trusted beyond code — I lead vendor code reviews and drive releases across Security, Infrastructure, and Release Management.",
     "avatar": "/profile-photo.jpg",
     "email": "ibrahim.ad90@gmail.com",
     "github": "https://github.com/Ibrahimad98",
     "linkedin": "https://www.linkedin.com/in/ibrahim-adam-5345781a1/",
-    "location": "Cijantung, East Jakarta",
-    "phone": "+62 812-xxxx-xxxx",
+    "resumeUrl": "/cv-ibrahim-adam.pdf",
+    "location": "East Jakarta, Indonesia",
+    "phone": "+62 857-4170-7025",
     "skills": [
+      "Node.js",
+      "Express.js",
+      "JavaScript",
+      "TypeScript",
+      "REST API Design",
+      "Microservices",
+      "JWT / OAuth",
+      "Redis Caching",
+      "GCP (Cloud Run)",
+      "OpenShift (OCP)",
+      "Docker",
+      "CI/CD Pipelines",
+      "Log & Metrics Monitoring",
+      "Root-Cause Analysis",
       "Vue.js",
       "React",
       "React Native",
-      "Node.js",
-      "Express.js",
-      "TypeScript",
-      "JavaScript",
-      "Pinia",
-      "Vuex",
-      "Redux",
-      "REST API",
       "PostgreSQL",
+      "MySQL",
       "MongoDB",
       "Redis",
-      "Tailwind CSS",
-      "GCP",
-      "OCP",
-      "CI/CD",
-      "JWT",
-      "OAuth",
+      "SATUSEHAT / FHIR",
       "Git",
-      "Docker"
+      "Jira",
+      "Agile / Scrum"
     ],
     "experience": [
       {
-        "company": "PT Pegadaian",
+        "company": "PT Pegadaian (Persero)",
         "role": "Backend Engineer",
         "period": "Oct 2024 — Present",
-        "description": "Supporting large-scale enterprise applications including an attendance management system for 20,000+ users and a Customer Experience Management dashboard.",
+        "description": "Own the backend quality gate and cloud observability for company-wide enterprise platforms serving 20,000+ employees, coordinating releases across Security, Infrastructure, and Release Management.",
         "highlights": [
-          "PIC for ARALIA, a vendor attendance management app used by 20,000+ users across Indonesia",
-          "Developed CEM dashboard using Vue.js to visualize WhatsApp-based survey feedback",
-          "Implemented iLeads × LinkedIn Learning integration for automated training data synchronization",
-          "Coordinated with IT Security, Infrastructure, and Release Management for secure deployments",
-          "Led code reviews from vendors ensuring code quality and security compliance"
+          "Own the backend quality gate for ARALIA, the company-wide attendance system used daily by 20,000+ employees — leading vendor code reviews and coordinating security sign-off, infrastructure capacity, and release scheduling across 3 internal divisions",
+          "Monitor and troubleshoot production integrations using cloud-native observability on GCP (Cloud Run) and OpenShift / OCP, performing root-cause analysis on deployment and integration failures to keep releases stable",
+          "Traced intermittent failures in the iLeads–LinkedIn Learning sync through OCP deployment and service logs, then reconfigured the dev service to restore reliable sync for 20,000+ employee training records",
+          "Built a Customer Experience Management dashboard (Vue.js + Node.js) consolidating WhatsApp survey feedback across 5 product lines — cutting feedback-analysis turnaround from 7+ days to same-day",
+          "Integrated iLeads with LinkedIn Learning via REST API, automating training-record sync for 20,000+ employees and eliminating ~1 full workday per week of manual HR data entry"
         ]
       },
       {
         "company": "AIDO Health",
         "role": "Associate Software Engineer",
         "period": "May 2024 — Sep 2024",
-        "description": "Developed web-based clinic and hospital management applications supporting patient data administration and healthcare interoperability.",
+        "description": "Built clinic and hospital management modules and engineered national health-data interoperability for products deployed across 90+ healthcare clients.",
         "highlights": [
-          "Built and integrated patient data management systems with SATUSEHAT for standardized health data exchange",
-          "Developed clinic and hospital management applications using Vue.js and Node.js",
-          "Ensured compliance with national healthcare interoperability requirements",
-          "Supported patient data administration, medical records, and operational workflows"
+          "Developed clinic and hospital management modules (patient records, medical history, operational workflows) for AIDO's Hospita and Klinika products, deployed across 90+ healthcare clients",
+          "Engineered SATUSEHAT (Ministry of Health) integration using FHIR-based APIs, achieving national interoperability compliance and connecting an ecosystem of 1M+ patient records to the national health-data network"
         ]
       },
       {
-        "company": "Bithealth (Siloam Hospitals Group)",
+        "company": "Bithealth",
         "role": "Associate Software Engineer",
         "period": "Mar 2023 — May 2024",
-        "description": "Designed and developed management systems for Siloam Hospitals to handle doctor profiles, schedules, and hospital information across multiple locations.",
+        "description": "Delivered the Doctor Management System and first centralized admin dashboard for Siloam Hospitals, Indonesia's largest private hospital network (40+ hospitals).",
         "highlights": [
-          "Built Doctor Management System managing profiles and schedules across multiple hospital locations",
-          "Integrated data from existing hospital databases for real-time updates and consistency",
-          "Developed interactive administrative dashboard and CMS for hospital information management",
-          "Worked with Vue.js, Node.js, PostgreSQL, and Redis for scalable healthcare solutions"
+          "Built a Doctor Management System for Siloam Hospitals (40+ hospitals) managing profiles, schedules, and multi-location assignments for 2,700+ general practitioners and specialists",
+          "Delivered the first centralized admin dashboard and CMS to unify previously siloed hospital databases, replacing a fragmented manual process with a single real-time source of physician scheduling data across all locations",
+          "Worked with Vue.js, Node.js, PostgreSQL, and Redis to build scalable healthcare solutions"
         ]
       }
     ],
     "education": [
       {
         "institution": "Hacktiv8",
-        "degree": "Graduate — Full Stack JavaScript",
+        "degree": "Fullstack JavaScript Immersive (16-week intensive)",
         "period": "Aug 2022 — Dec 2022",
-        "description": "Completed a 16-week intensive full-stack web development bootcamp focusing on JavaScript technologies including Node.js, Vue.js, React, React Native, PostgreSQL, MongoDB, and Redis. Developed RESTful APIs with authentication (bcrypt, JWT) and caching strategies.",
-        "score": "82.3/100"
+        "description": "16-week intensive full-stack bootcamp covering Node.js, Vue.js, React, React Native, PostgreSQL, MongoDB, and Redis — building RESTful APIs with authentication (bcrypt, JWT) and caching strategies.",
+        "score": "Graduated 82.3/100"
       },
       {
         "institution": "Yogyakarta State University",
-        "degree": "Bachelor of Sport Education",
+        "degree": "Bachelor's Degree — Cum Laude",
         "period": "Aug 2017 — Dec 2021",
-        "description": "Graduated Cum Laude with a GPA of 3.62/4.00. Developed strong discipline, teamwork, and analytical skills that translate into a methodical approach to software engineering.",
-        "score": "GPA 3.62/4.00 — Cum Laude"
+        "description": "Graduated Cum Laude. Student Executive Board (BEM) leadership and national academic competition participant (PKM) — developing discipline, teamwork, and analytical skills that translate into a methodical approach to engineering.",
+        "score": "Cum Laude"
       }
     ]
   },
@@ -93,9 +94,9 @@
     {
       "slug": "cem-dashboard",
       "title": "Customer Experience Management Dashboard",
-      "description": "A Vue.js dashboard to visualize WhatsApp-based customer survey feedback across multiple product lines at Pegadaian, enabling business teams to monitor satisfaction trends.",
-      "overview": "Developed a Customer Experience Management (CEM) dashboard using Vue.js to visualize WhatsApp-based customer survey feedback across multiple product lines at Pegadaian. The dashboard enables business teams to monitor satisfaction trends and gain actionable insights for service improvement. Built with a focus on intuitive data visualization and real-time feedback monitoring, helping stakeholders make data-driven decisions to enhance customer experience across the organization.",
-      "techStack": ["Vue.js", "Pinia", "REST API", "Tailwind CSS", "GCP"],
+      "description": "A Vue.js + Node.js dashboard consolidating WhatsApp survey feedback across 5 product lines at Pegadaian into a single real-time view — cutting feedback-analysis turnaround from 7+ days to same-day.",
+      "overview": "Built a Customer Experience Management (CEM) dashboard with Vue.js and Node.js that consolidates WhatsApp-based customer survey feedback across 5 product lines at Pegadaian into a single real-time view. It replaced manual spreadsheet reporting and cut feedback-analysis turnaround from 7+ days to same-day, giving business teams actionable insight into satisfaction trends and enabling data-driven decisions across the organization.",
+      "techStack": ["Vue.js", "Node.js", "Pinia", "REST API", "GCP"],
       "media": [
         {
           "driveFileId": "15XiKISCgmJF2pVKTaz_nX5NAJOLCWX1p",
@@ -123,9 +124,9 @@
     {
       "slug": "aralia-attendance-system",
       "title": "ARALIA — Vendor Attendance Management",
-      "description": "Pegadaian's vendor attendance management application supporting 20,000+ users across Indonesia with secure and scalable architecture.",
-      "overview": "Served as the Person in Charge (PIC) for ARALIA, Pegadaian's vendor attendance management application supporting 20,000+ users across Indonesia. Led code reviews from vendors and coordinated with IT Security, Infrastructure, Release Management, and business users to deliver secure, reliable, and scalable application improvements. Ensured smooth deployments and maintained high availability for this mission-critical enterprise system.",
-      "techStack": ["Vue.js", "Node.js", "PostgreSQL", "OCP", "CI/CD", "JWT"],
+      "description": "Pegadaian's company-wide attendance system used daily by 20,000+ employees. I own the backend quality gate — leading vendor code reviews and coordinating security, infrastructure, and release scheduling across 3 internal divisions.",
+      "overview": "ARALIA is Pegadaian's company-wide attendance system, used daily by 20,000+ employees. As owner of the backend quality gate, I lead code reviews of all vendor deliverables and coordinate security sign-off, infrastructure capacity, and release scheduling across 3 internal divisions. I monitor production health via cloud-native observability on GCP (Cloud Run) and OpenShift / OCP, performing root-cause analysis on deployment and integration failures to keep this mission-critical system stable and highly available.",
+      "techStack": ["Node.js", "PostgreSQL", "GCP (Cloud Run)", "OpenShift", "CI/CD", "JWT"],
       "media": [
         {
           "src": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=500&fit=crop&auto=format&q=80",
@@ -150,9 +151,9 @@
     {
       "slug": "ileads-linkedin-integration",
       "title": "iLeads × LinkedIn Learning Integration",
-      "description": "Automated synchronization between Pegadaian's internal iLeads learning platform and LinkedIn Learning to improve employee training visibility.",
-      "overview": "Implemented an integration between the internal iLeads learning platform and LinkedIn Learning, enabling automated synchronization of learning data and improving visibility of employee training progress across the organization. This integration streamlined the tracking of employee professional development, providing managers and HR with consolidated insights into learning activities and course completions from both internal and external platforms.",
-      "techStack": ["Node.js", "REST API", "PostgreSQL", "OAuth", "GCP"],
+      "description": "Automated training-record synchronization between Pegadaian's internal iLeads platform and LinkedIn Learning via REST API — covering 20,000+ employees and eliminating ~1 full workday per week of manual HR data entry.",
+      "overview": "Integrated the internal iLeads learning platform with LinkedIn Learning via REST API, automating training-record synchronization for 20,000+ employees and eliminating roughly one full workday per week of manual HR data entry. When the sync showed intermittent failures, I traced the cause through OCP deployment and service logs, identified the breaking integration step during rollout, and reconfigured the dev service to restore a smooth, reliable sync — giving managers and HR consolidated visibility into learning progress across internal and external platforms.",
+      "techStack": ["Node.js", "REST API", "OAuth", "OpenShift", "PostgreSQL"],
       "media": [
         {
           "src": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop&auto=format&q=80",
@@ -177,9 +178,9 @@
     {
       "slug": "doctor-management-system",
       "title": "Doctor Management System — Siloam Hospitals",
-      "description": "A management system for Siloam Hospitals to handle doctor profiles, schedules, and hospital information across multiple locations in Indonesia.",
-      "overview": "Designed and developed a Doctor Management System for Siloam Hospitals to manage doctor profiles, schedules, and hospital-related information across multiple locations in Indonesia. Integrated data from existing hospital databases to enable real-time updates and consistency across systems, while developing an interactive administrative dashboard and a content management system (CMS) to streamline management of doctor and hospital information.",
-      "techStack": ["Vue.js", "Node.js", "PostgreSQL", "REST API", "Redis"],
+      "description": "Doctor Management System for Siloam Hospitals — Indonesia's largest private network (40+ hospitals) — managing profiles, schedules, and multi-location assignments for 2,700+ general practitioners and specialists.",
+      "overview": "Designed and built a Doctor Management System for Siloam Hospitals, Indonesia's largest private hospital network spanning 40+ hospitals, managing profiles, schedules, and multi-location assignments for 2,700+ general practitioners and specialists. I delivered the first centralized admin dashboard and CMS to unify previously siloed hospital databases — replacing a fragmented manual process with a single real-time source of physician scheduling data across all locations.",
+      "techStack": ["Vue.js", "Node.js", "PostgreSQL", "Redis", "REST API"],
       "media": [
         {
           "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=500&fit=crop&auto=format&q=80",
@@ -204,9 +205,9 @@
     {
       "slug": "clinic-management-app",
       "title": "Clinic Management Application",
-      "description": "Web-based clinic and hospital management application supporting patient data administration, medical records, and operational workflows.",
-      "overview": "Developed web-based clinic and hospital management applications to support patient data administration, medical records, and operational workflows across healthcare facilities in Indonesia. Built and integrated patient data management systems with SATUSEHAT, enabling standardized health data exchange and supporting compliance with national healthcare interoperability requirements.",
-      "techStack": ["Vue.js", "Node.js", "MongoDB", "SATUSEHAT API", "REST API"],
+      "description": "Clinic and hospital management modules (patient records, medical history, operational workflows) for AIDO's Hospita and Klinika products, deployed across 90+ healthcare clients with SATUSEHAT/FHIR interoperability.",
+      "overview": "Developed clinic and hospital management modules — patient records, medical history, and operational workflows — for AIDO's Hospita and Klinika products, deployed across 90+ healthcare clients. I engineered the SATUSEHAT (Ministry of Health) integration using FHIR-based APIs, achieving national interoperability compliance and connecting an ecosystem of 1M+ patient records to the national health-data network.",
+      "techStack": ["Node.js", "Vue.js", "MongoDB", "SATUSEHAT / FHIR", "REST API"],
       "media": [
         {
           "src": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&h=500&fit=crop&auto=format&q=80",

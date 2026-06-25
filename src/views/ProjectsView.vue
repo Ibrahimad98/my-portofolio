@@ -3,8 +3,8 @@ import { ref, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePortfolioStore } from '@/stores/portfolio'
 import ProjectGrid from '@/components/portfolio/ProjectGrid.vue'
-import Badge from '@/components/ui/Badge.vue'
 import Button from '@/components/ui/Button.vue'
+import BrandLoader from '@/components/layout/BrandLoader.vue'
 import { Search, X } from 'lucide-vue-next'
 
 const store = usePortfolioStore()
@@ -46,51 +46,46 @@ function clearFilters() {
 <template>
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
         <!-- Loading State -->
-        <div v-if="loading" class="flex items-center justify-center min-h-[40vh]">
-            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
-        </div>
+        <BrandLoader v-if="loading" label="Loading projects" />
 
         <template v-else>
             <!-- Page Header -->
-            <div class="mb-8">
-                <h1 class="text-3xl sm:text-4xl font-bold text-foreground">All Projects</h1>
-                <p class="text-muted-foreground mt-2">
-                    Browse through all {{ projects.length }} projects I've built
-                </p>
+            <div v-reveal class="mb-10 border-b border-border pb-8">
+                <div class="flex items-baseline justify-between eyebrow text-muted-foreground mb-6">
+                    <span>(Index)</span>
+                    <span>{{ projects.length }} Projects</span>
+                </div>
+                <h1 class="display font-medium text-foreground text-6xl sm:text-8xl">Projects</h1>
             </div>
 
             <!-- Filters -->
-            <div class="flex flex-col sm:flex-row gap-4 mb-8">
+            <div class="flex flex-col gap-5 mb-10">
                 <!-- Search -->
-                <div class="relative flex-1">
-                    <Search class="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
+                <div class="relative">
+                    <Search class="absolute left-0 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
                     <input v-model="searchQuery" type="text"
-                        placeholder="Search projects by name, description, or tech..."
-                        class="w-full h-10 rounded-lg border border-border bg-background pl-10 pr-10 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring" />
+                        placeholder="SEARCH BY NAME, DESCRIPTION, OR TECH…"
+                        class="w-full h-11 border-b border-border bg-transparent pl-7 pr-8 font-mono text-xs uppercase tracking-wider text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-foreground transition-colors" />
                     <button v-if="searchQuery"
-                        class="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground cursor-pointer"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground cursor-pointer"
                         @click="searchQuery = ''">
                         <X class="size-4" />
                     </button>
                 </div>
 
                 <!-- Category Filter -->
-                <div class="flex flex-wrap items-center gap-1.5">
+                <div class="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-wider">
                     <button :class="[
-                        'px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer btn-shine',
-                        !selectedCategory
-                            ? 'bg-primary text-primary-foreground'
-                            : 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+                        'transition-colors cursor-pointer inline-flex items-center gap-1.5',
+                        !selectedCategory ? 'text-foreground' : 'text-muted-foreground hover:text-foreground',
                     ]" @click="selectCategory(null)">
-                        All
+                        <span v-if="!selectedCategory">●</span> All
                     </button>
                     <button v-for="cat in categories" :key="cat" :class="[
-                        'px-3 py-1.5 rounded-full text-xs font-medium transition-colors cursor-pointer btn-shine',
-                        selectedCategory === cat
-                            ? 'bg-primary text-primary-foreground'
-                            : 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
+                        'transition-colors cursor-pointer inline-flex items-center gap-1.5',
+                        selectedCategory === cat ? 'text-foreground' : 'text-muted-foreground hover:text-foreground',
                     ]" @click="selectCategory(cat)">
-                        {{ cat }}
+                        <span v-if="selectedCategory === cat">●</span> {{ cat }}
                     </button>
                 </div>
             </div>
@@ -105,38 +100,3 @@ function clearFilters() {
         </template>
     </div>
 </template>
-
-<style scoped>
-.btn-shine {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-shine::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg,
-            transparent 0%,
-            transparent 30%,
-            rgba(255, 255, 255, 0.35) 50%,
-            transparent 70%,
-            transparent 100%);
-    transform: translateX(-100%);
-    pointer-events: none;
-}
-
-.btn-shine:hover::after {
-    animation: btn-shine-sweep 0.6s ease-out forwards;
-}
-
-@keyframes btn-shine-sweep {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
-}
-</style>

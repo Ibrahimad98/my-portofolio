@@ -1,56 +1,46 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import type { Project } from '@/types/Portfolio'
-import Card from '@/components/ui/Card.vue'
-import CardHeader from '@/components/ui/CardHeader.vue'
-import CardTitle from '@/components/ui/CardTitle.vue'
-import CardDescription from '@/components/ui/CardDescription.vue'
-import CardContent from '@/components/ui/CardContent.vue'
-import CardFooter from '@/components/ui/CardFooter.vue'
-import Badge from '@/components/ui/Badge.vue'
-import { ArrowRight } from 'lucide-vue-next'
+import { ArrowUpRight } from 'lucide-vue-next'
 
 interface Props {
     project: Project
 }
 
 defineProps<Props>()
+
+function year(date: string) {
+    return new Date(date).getFullYear()
+}
 </script>
 
 <template>
-    <RouterLink :to="`/projects/${project.slug}`" class="group block">
-        <Card
-            class="overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/20 hover:-translate-y-1">
-            <!-- Image Preview -->
-            <div class="relative aspect-video overflow-hidden">
-                <img :src="project.media[0]?.src" :alt="project.media[0]?.alt ?? project.title"
-                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy" />
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <Badge variant="secondary" class="absolute top-3 right-3 bg-background/90 backdrop-blur-sm">
-                    {{ project.category }}
-                </Badge>
+    <RouterLink :to="`/projects/${project.slug}`" class="group block border border-border bg-card transition-colors hover:border-foreground">
+        <!-- Media preview -->
+        <div class="relative aspect-[4/3] overflow-hidden border-b border-border">
+            <img :src="project.media[0]?.src" :alt="project.media[0]?.alt ?? project.title"
+                class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy" />
+            <span
+                class="absolute top-3 left-3 font-mono text-[11px] uppercase tracking-wider bg-background/90 backdrop-blur px-2 py-1 border border-border">
+                {{ project.category }}
+            </span>
+        </div>
+
+        <!-- Body -->
+        <div class="p-5">
+            <div class="flex items-start justify-between gap-3">
+                <h3 class="display text-xl font-medium text-foreground leading-tight">
+                    {{ project.title }}
+                </h3>
+                <ArrowUpRight
+                    class="size-4 shrink-0 mt-1 text-muted-foreground transition-all duration-300 group-hover:text-foreground group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </div>
 
-            <CardHeader>
-                <CardTitle class="flex items-center justify-between">
-                    <span>{{ project.title }}</span>
-                    <ArrowRight
-                        class="size-4 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                </CardTitle>
-                <CardDescription>{{ project.description }}</CardDescription>
-            </CardHeader>
-
-            <CardFooter class="flex flex-wrap gap-1.5">
-                <Badge v-for="tech in project.techStack.slice(0, 4)" :key="tech" variant="interactive"
-                    class="text-[11px]">
-                    {{ tech }}
-                </Badge>
-                <Badge v-if="project.techStack.length > 4" variant="interactive" class="text-[11px]">
-                    +{{ project.techStack.length - 4 }}
-                </Badge>
-            </CardFooter>
-        </Card>
+            <p class="font-mono text-[11px] uppercase tracking-wider text-muted-foreground mt-2">
+                {{ year(project.completedAt) }} — {{ project.techStack.slice(0, 3).join(' / ')
+                }}<span v-if="project.techStack.length > 3"> +{{ project.techStack.length - 3 }}</span>
+            </p>
+        </div>
     </RouterLink>
 </template>
