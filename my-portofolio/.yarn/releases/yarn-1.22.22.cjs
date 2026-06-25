@@ -24702,7 +24702,7 @@ function normalizePattern(pattern) {
       var checkIteratee = /^(?:filter|find|map|reject)|While$/.test(methodName),
           isTaker = /^(?:head|last)$/.test(methodName),
           lodashFunc = lodash[isTaker ? ('take' + (methodName == 'last' ? 'Right' : '')) : methodName],
-          retUnwrapped = isTaker || /^find/.test(methodName);
+          retUnwrapped = isTaker || methodName.startsWith('find');
 
       if (!lodashFunc) {
         return;
@@ -25289,7 +25289,7 @@ let uid = 0;
 const exec = exports.exec = (0, (_promise || _load_promise()).promisify)(child.exec);
 
 function validate(program, opts = {}) {
-  if (program.match(/[\\\/]/)) {
+  if (program.match(/[\\/]/)) {
     return;
   }
 
@@ -32720,7 +32720,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const DEFAULT_REGISTRY = 'https://registry.npmjs.org/';
-const REGEX_REGISTRY_ENFORCED_HTTPS = /^https?:\/\/([^\/]+\.)?(yarnpkg\.com|npmjs\.(org|com))(\/|$)/;
+const REGEX_REGISTRY_ENFORCED_HTTPS = /^https?:\/\/([^/]+\.)?(yarnpkg\.com|npmjs\.(org|com))(\/|$)/;
 const REGEX_REGISTRY_HTTP_PROTOCOL = /^https?:/i;
 const REGEX_REGISTRY_PREFIX = /^(https?:)?\/\//i;
 const REGEX_REGISTRY_SUFFIX = /registry\/?$/;
@@ -32733,7 +32733,7 @@ const SCOPE_SEPARATOR = exports.SCOPE_SEPARATOR = '%2f';
 // The reason for matching a plain `/` is NPM registry being inconsistent about escaping `/` in
 // scoped package names: when you're fetching a tarball, it is not escaped, when you want info
 // about the package, it is escaped.
-const SCOPED_PKG_REGEXP = /(?:^|\/)(@[^\/?]+?)(?=%2f|\/)/;
+const SCOPED_PKG_REGEXP = /(?:^|\/)(@[^/?]+?)(?=%2f|\/)/;
 
 // TODO: Use the method from src/cli/commands/global.js for this instead
 function getGlobalPrefix() {
@@ -34061,7 +34061,7 @@ Glob.prototype._processSimple2 = function (prefix, index, er, exists, cb) {
     return cb()
 
   if (prefix && isAbsolute(prefix) && !this.nomount) {
-    var trail = /[\/\\]$/.test(prefix)
+    var trail = /[/\\]$/.test(prefix)
     if (prefix.charAt(0) === '/') {
       prefix = path.join(this.root, prefix)
     } else {
@@ -34200,7 +34200,7 @@ function posix(path) {
 
 function win32(path) {
 	// https://github.com/nodejs/node/blob/b3fcc245fb25539909ef1d5eaa01dbf92e168633/lib/path.js#L56
-	var splitDeviceRe = /^([a-zA-Z]:|[\\\/]{2}[^\\\/]+[\\\/]+[^\\\/]+)?([\\\/])?([\s\S]*?)$/;
+	var splitDeviceRe = /^([a-zA-Z]:|[\\/]{2}[^\\/]+[\\/]+[^\\/]+)?([\\/])?([\s\S]*?)$/;
 	var result = splitDeviceRe.exec(path);
 	var device = result[1] || '';
 	var isUnc = Boolean(device && device.charAt(1) !== ':');
@@ -34656,10 +34656,10 @@ function* tokenise(input) {
       chop = val.length;
 
       yield buildToken(TOKEN_TYPES.number, +val);
-    } else if (/^true/.test(input)) {
+    } else if (input.startsWith('true')) {
       yield buildToken(TOKEN_TYPES.boolean, true);
       chop = 4;
-    } else if (/^false/.test(input)) {
+    } else if (input.startsWith('false')) {
       yield buildToken(TOKEN_TYPES.boolean, false);
       chop = 5;
     } else if (input[0] === ':') {
@@ -34668,7 +34668,7 @@ function* tokenise(input) {
     } else if (input[0] === ',') {
       yield buildToken(TOKEN_TYPES.comma);
       chop++;
-    } else if (/^[a-zA-Z\/.-]/g.test(input)) {
+    } else if (/^[a-zA-Z/.-]/g.test(input)) {
       let i = 0;
       for (; i < input.length; i++) {
         const char = input[i];
@@ -38965,7 +38965,7 @@ const dependencyKeys = [
 'dependencies', 'devDependencies'];
 
 function isValidName(name) {
-  return !name.match(/[\/@\s\+%:]/) && encodeURIComponent(name) === name;
+  return !name.match(/[/@\s+%:]/) && encodeURIComponent(name) === name;
 }
 
 function isValidScopedName(name) {
@@ -40446,7 +40446,7 @@ function finish (self) {
     }
     if (self.nodir) {
       all = all.filter(function (e) {
-        var notDir = !(/\/$/.test(e))
+        var notDir = !(e.endsWith('/'))
         var c = self.cache[e] || self.cache[makeAbs(self, e)]
         if (notDir && c)
           notDir = c !== 'DIR' && !Array.isArray(c)
@@ -41636,7 +41636,7 @@ Fingerprint.parse = function (fp, options) {
 	if (parts.length == 2) {
 		alg = parts[0].toLowerCase();
 		/*JSSTYLED*/
-		var base64RE = /^[A-Za-z0-9+\/=]+$/;
+		var base64RE = /^[A-Za-z0-9+/=]+$/;
 		if (!base64RE.test(parts[1]))
 			throw (new FingerprintFormatError(fp));
 		try {
@@ -42349,7 +42349,7 @@ var asn1 = __webpack_require__(66);
 var Buffer = __webpack_require__(15).Buffer;
 
 /*JSSTYLED*/
-var DNS_NAME_RE = /^([*]|[a-z0-9][a-z0-9\-]{0,62})(?:\.([*]|[a-z0-9][a-z0-9\-]{0,62}))*$/i;
+var DNS_NAME_RE = /^([*]|[a-z0-9][a-z0-9-]{0,62})(?:\.([*]|[a-z0-9][a-z0-9-]{0,62}))*$/i;
 
 var oids = {};
 oids.cn = '2.5.4.3';
@@ -42459,7 +42459,7 @@ Identity.prototype.toString = function () {
  * (the basic ASCII character set).
  */
 /* JSSTYLED */
-var NOT_PRINTABLE = /[^a-zA-Z0-9 '(),+.\/:=?-]/;
+var NOT_PRINTABLE = /[^a-zA-Z0-9 '(),+./:=?-]/;
 /* JSSTYLED */
 var NOT_IA5 = /[^\x00-\x7f]/;
 
@@ -46924,7 +46924,7 @@ function _load_package() {
 const NODE_VERSION = process.version;
 
 function shouldWrapKey(str) {
-  return str.indexOf('true') === 0 || str.indexOf('false') === 0 || /[:\s\n\\",\[\]]/g.test(str) || /^[0-9]/g.test(str) || !/^[a-zA-Z]/g.test(str);
+  return str.indexOf('true') === 0 || str.indexOf('false') === 0 || /[:\s\n\\",[\]]/g.test(str) || /^[0-9]/g.test(str) || !/^[a-zA-Z]/g.test(str);
 }
 
 function maybeWrap(str) {
@@ -51873,7 +51873,7 @@ const path = __webpack_require__(0);
 
 const validateLicense = __webpack_require__(959);
 
-const PARENT_PATH = /^\.\.([\\\/]|$)/;
+const PARENT_PATH = /^\.\.([\\/]|$)/;
 
 function isValidLicense(license) {
   return !!license && validateLicense(license).validForNewPackages;
@@ -51914,7 +51914,7 @@ function parsePerson(person) {
   // format: name (url) <email>
   const obj = {};
 
-  let name = person.match(/^([^\(<]+)/);
+  let name = person.match(/^([^(<]+)/);
   if (name) {
     name = name[0].trim();
     if (name) {
@@ -51927,7 +51927,7 @@ function parsePerson(person) {
     obj.email = email[1];
   }
 
-  const url = person.match(/\(([^\)]+)\)/);
+  const url = person.match(/\(([^)]+)\)/);
   if (url) {
     obj.url = url[1];
   }
@@ -52296,7 +52296,7 @@ function expand(str, isTop) {
   var expansions = [];
 
   var m = balanced('{', '}', str);
-  if (!m || /\$$/.test(m.pre)) return [str];
+  if (!m || m.pre.endsWith('$')) return [str];
 
   var isNumericSequence = /^-?\d+\.\.-?\d+(?:\.\.-?\d+)?$/.test(m.body);
   var isAlphaSequence = /^[a-zA-Z]\.\.[a-zA-Z](?:\.\.-?\d+)?$/.test(m.body);
@@ -60985,16 +60985,16 @@ var normalize = pathModule.normalize;
 // Regexp that finds the next partion of a (partial) path
 // result is [base_with_slash, base], e.g. ['somedir/', 'somedir']
 if (isWindows) {
-  var nextPartRe = /(.*?)(?:[\/\\]+|$)/g;
+  var nextPartRe = /(.*?)(?:[/\\]+|$)/g;
 } else {
-  var nextPartRe = /(.*?)(?:[\/]+|$)/g;
+  var nextPartRe = /(.*?)(?:[/]+|$)/g;
 }
 
 // Regex to find the device root, including trailing slash. E.g. 'c:\\'.
 if (isWindows) {
-  var splitRootRe = /^(?:[a-zA-Z]:|[\\\/]{2}[^\\\/]+[\\\/][^\\\/]+)?[\\\/]*/;
+  var splitRootRe = /^(?:[a-zA-Z]:|[\\/]{2}[^\\/]+[\\/][^\\/]+)?[\\/]*/;
 } else {
-  var splitRootRe = /^[\/]*/;
+  var splitRootRe = /^[/]*/;
 }
 
 exports.realpathSync = function realpathSync(p, cache) {
@@ -61620,7 +61620,7 @@ GlobSync.prototype._processSimple = function (prefix, index) {
     return
 
   if (prefix && isAbsolute(prefix) && !this.nomount) {
-    var trail = /[\/\\]$/.test(prefix)
+    var trail = /[/\\]$/.test(prefix)
     if (prefix.charAt(0) === '/') {
       prefix = path.join(this.root, prefix)
     } else {
@@ -62100,7 +62100,7 @@ module.exports = function (flag, argv) {
 	argv = argv || process.argv;
 
 	var terminatorPos = argv.indexOf('--');
-	var prefix = /^--/.test(flag) ? '' : '--';
+	var prefix = flag.startsWith('--') ? '' : '--';
 	var pos = argv.indexOf(prefix + flag);
 
 	return pos !== -1 && (terminatorPos !== -1 ? pos < terminatorPos : true);
@@ -63234,9 +63234,9 @@ var CHOMPING_KEEP  = 3;
 
 var PATTERN_NON_PRINTABLE         = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
 var PATTERN_NON_ASCII_LINE_BREAKS = /[\x85\u2028\u2029]/;
-var PATTERN_FLOW_INDICATORS       = /[,\[\]\{\}]/;
-var PATTERN_TAG_HANDLE            = /^(?:!|!!|![a-z\-]+!)$/i;
-var PATTERN_TAG_URI               = /^(?:!|[^,\[\]\{\}])(?:%[0-9a-f]{2}|[0-9a-z\-#;\/\?:@&=\+\$,_\.!~\*'\(\)\[\]])*$/i;
+var PATTERN_FLOW_INDICATORS       = /[,[\]{}]/;
+var PATTERN_TAG_HANDLE            = /^(?:!|!!|![a-z-]+!)$/i;
+var PATTERN_TAG_URI               = /^(?:!|[^,[\]{}])(?:%[0-9a-f]{2}|[0-9a-z\-#;/?:@&=+$,_.!~*'()[\]])*$/i;
 
 
 function _class(obj) { return Object.prototype.toString.call(obj); }
@@ -69257,7 +69257,7 @@ function read(buf, options) {
 		buf = buf.toString('ascii');
 	}
 	var lines = buf.split('\n');
-	if (lines[0].match(/^Private-key-format\: v1/)) {
+	if (lines[0].match(/^Private-key-format: v1/)) {
 		var algElems = lines[1].split(' ');
 		var algoNum = parseInt(algElems[1], 10);
 		var algoName = algElems[2];
@@ -69269,7 +69269,7 @@ function read(buf, options) {
 	// skip any comment-lines
 	var line = 0;
 	/* JSSTYLED */
-	while (lines[line].match(/^\;/))
+	while (lines[line].match(/^;/))
 		line++;
 	// we should now have *one single* line left with our KEY on it.
 	if ((lines[line].match(/\. IN KEY /) ||
@@ -71278,7 +71278,7 @@ Command.prototype.normalize = function(args) {
       arg.slice(1).split('').forEach(function(c) {
         ret.push('-' + c);
       });
-    } else if (/^--/.test(arg) && ~(index = arg.indexOf('='))) {
+    } else if (arg.startsWith('--') && ~(index = arg.indexOf('='))) {
       ret.push(arg.slice(0, index), arg.slice(index + 1));
     } else {
       ret.push(arg);
@@ -75968,7 +75968,7 @@ class TarballFetcher extends (_baseFetcher || _load_baseFetcher()).default {
     const urlParse = url.parse(this.reference);
 
     // legacy support for local paths in yarn.lock entries
-    const isRelativePath = urlParse.protocol ? urlParse.protocol.match(/^[a-z]:$/i) : urlParse.pathname ? urlParse.pathname.match(/^(?:\.{1,2})?[\\\/]/) : false;
+    const isRelativePath = urlParse.protocol ? urlParse.protocol.match(/^[a-z]:$/i) : urlParse.pathname ? urlParse.pathname.match(/^(?:\.{1,2})?[\\/]/) : false;
 
     if (isFilePath || isRelativePath) {
       return this.fetchFromLocal(this.reference);
@@ -77709,7 +77709,7 @@ exports.isValidPackagePath = isValidPackagePath;
  * Parse input strings like `package-1/package-2` to an array of packages
  */
 function parsePackagePath(input) {
-  return input.match(/(@[^\/]+\/)?([^/]+)/g) || [];
+  return input.match(/(@[^/]+\/)?([^/]+)/g) || [];
 }
 
 const WRONG_PATTERNS = /\/$|\/{2,}|\*+$/;
@@ -81724,7 +81724,7 @@ module.exports = function generate_validate(it, $keyword, $ruleType) {
     }
     out += ' (data, dataPath, parentData, parentDataProperty, rootData) { \'use strict\'; ';
     if ($id && (it.opts.sourceCode || it.opts.processCode)) {
-      out += ' ' + ('/\*# sourceURL=' + $id + ' */') + ' ';
+      out += ' ' + ('/*# sourceURL=' + $id + ' */') + ' ';
     }
   }
   if (typeof it.schema == 'boolean' || !($refKeywords || it.schema.$ref)) {
@@ -85719,7 +85719,7 @@ module.exports = function nodeModulesPaths(start, opts) {
     var prefix = '/';
     if (/^([A-Za-z]:)/.test(absoluteStart)) {
         prefix = '';
-    } else if (/^\\\\/.test(absoluteStart)) {
+    } else if (absoluteStart.startsWith('\\\\')) {
         prefix = '\\\\';
     }
 
@@ -87727,7 +87727,7 @@ function findDNSSECHeader(buf) {
 	var lines = buf.split('\n');
 	var line = 0;
 	/* JSSTYLED */
-	while (lines[line].match(/^\;/))
+	while (lines[line].match(/^;/))
 		line++;
 	if (lines[line].toString('ascii').match(/\. IN KEY /))
 		return (true);
@@ -87762,9 +87762,9 @@ var PrivateKey = __webpack_require__(33);
 var sshpriv = __webpack_require__(193);
 
 /*JSSTYLED*/
-var SSHKEY_RE = /^([a-z0-9-]+)[ \t]+([a-zA-Z0-9+\/]+[=]*)([ \t]+([^ \t][^\n]*[\n]*)?)?$/;
+var SSHKEY_RE = /^([a-z0-9-]+)[ \t]+([a-zA-Z0-9+/]+[=]*)([ \t]+([^ \t][^\n]*[\n]*)?)?$/;
 /*JSSTYLED*/
-var SSHKEY_RE2 = /^([a-z0-9-]+)[ \t\n]+([a-zA-Z0-9+\/][a-zA-Z0-9+\/ \t\n=]*)([^a-zA-Z0-9+\/ \t\n=].*)?$/;
+var SSHKEY_RE2 = /^([a-z0-9-]+)[ \t\n]+([a-zA-Z0-9+/][a-zA-Z0-9+/ \t\n=]*)([^a-zA-Z0-9+/ \t\n=].*)?$/;
 
 function read(buf, options) {
 	if (typeof (buf) !== 'string') {
@@ -87822,7 +87822,7 @@ function read(buf, options) {
 		var data = m[2] + (m[3] ? m[3] : '');
 		var realOffset = Math.ceil(ret.consumed / 3) * 4;
 		data = data.slice(0, realOffset - 2). /*JSSTYLED*/
-		    replace(/[^a-zA-Z0-9+\/=]/g, '') +
+		    replace(/[^a-zA-Z0-9+/=]/g, '') +
 		    data.slice(realOffset - 2);
 
 		var padding = ret.consumed % 3;
@@ -91150,7 +91150,7 @@ Writer.prototype.writeBuffer = function (buf, tag) {
 
 
 Writer.prototype.writeStringArray = function (strings) {
-  if ((!strings instanceof Array))
+  if ((!(strings instanceof Array)))
     throw new TypeError('argument must be an Array[String]');
 
   var self = this;
@@ -91703,7 +91703,7 @@ function RequestSigner(request, credentials) {
 }
 
 RequestSigner.prototype.matchHost = function(host) {
-  var match = (host || '').match(/([^\.]+)\.(?:([^\.]*)\.)?amazonaws\.com$/)
+  var match = (host || '').match(/([^.]+)\.(?:([^.]*)\.)?amazonaws\.com$/)
   var hostParts = (match || []).slice(1, 3)
 
   // ES's hostParts are sometimes the other way round, if the value that is expected
@@ -91800,7 +91800,7 @@ RequestSigner.prototype.getDateTime = function() {
     var headers = this.request.headers,
       date = new Date(headers.Date || headers.date || new Date)
 
-    this.datetime = date.toISOString().replace(/[:\-]|\.\d{3}/g, '')
+    this.datetime = date.toISOString().replace(/[:-]|\.\d{3}/g, '')
 
     // Remove the trailing 'Z' on the timestamp string for CodeCommit git access
     if (this.isCodeCommitGit) this.datetime = this.datetime.slice(0, -1)
@@ -103614,7 +103614,7 @@ exports.default = (() => {
     // { name: "foo", bin: "cli.js" } -> { name: "foo", bin: { foo: "cli.js" } }
     if (typeof info.name === 'string' && typeof info.bin === 'string' && info.bin.length > 0) {
       // Remove scoped package name for consistency with NPM's bin field fixing behaviour
-      const name = info.name.replace(/^@[^\/]+\//, '');
+      const name = info.name.replace(/^@[^/]+\//, '');
       info.bin = { [name]: info.bin };
     }
 
@@ -109120,7 +109120,7 @@ function toStr(ch) {
  */
 
 function stepRe() {
-  return /\?|>|\||\+|\~/g;
+  return /\?|>|\||\+|~/g;
 }
 
 /**
@@ -109296,7 +109296,7 @@ function extglob(str, opts) {
   str = str.replace(/!\(([^\w*()])/g, '$1!(');
 
   // support file extension negation
-  str = str.replace(/([*\/])\.!\([*]\)/g, function (m, ch) {
+  str = str.replace(/([*/])\.!\([*]\)/g, function (m, ch) {
     if (ch === '/') {
       return escape('\\/[^.]+');
     }
@@ -109506,7 +109506,7 @@ function jsSprintf(fmt)
 		arg = args.shift();
 		argn++;
 
-		if (flags.match(/[\' #]/))
+		if (flags.match(/[' #]/))
 			throw (new Error(
 			    'unsupported flags: ' + flags));
 
@@ -109627,7 +109627,7 @@ function dumpException(ex)
  */
 
 module.exports = function filenameRegex() {
-  return /([^\\\/]+)$/;
+  return /([^\\/]+)$/;
 };
 
 
@@ -120436,7 +120436,7 @@ var ExternalEditor = /** @class */ (function () {
     ExternalEditor.prototype.determineEditor = function () {
         var editor = process.env.VISUAL ? process.env.VISUAL :
             process.env.EDITOR ? process.env.EDITOR :
-                /^win/.test(process.platform) ? "notepad" :
+                process.platform.startsWith('win') ? "notepad" :
                     "vim";
         var editorOpts = ExternalEditor.splitStringBySpace(editor).map(function (piece) { return piece.replace("\\ ", " "); });
         var bin = editorOpts.shift();
@@ -122429,7 +122429,7 @@ Utf7Codec.prototype.bomAware = true;
 
 // -- Encoding
 
-var nonDirectChars = /[^A-Za-z0-9'\(\),-\.\/:\? \n\r\t]+/g;
+var nonDirectChars = /[^A-Za-z0-9'(),-./:? \n\r\t]+/g;
 
 function Utf7Encoder(options, codec) {
     this.iconv = codec.iconv;
@@ -122457,7 +122457,7 @@ function Utf7Decoder(options, codec) {
     this.base64Accum = '';
 }
 
-var base64Regex = /[A-Za-z0-9\/+]/;
+var base64Regex = /[A-Za-z0-9/+]/;
 var base64Chars = [];
 for (var i = 0; i < 256; i++)
     base64Chars[i] = base64Regex.test(String.fromCharCode(i));
@@ -123568,7 +123568,7 @@ module.exports = function (x) {
  */
 
 module.exports = function isPosixBracket(str) {
-  return typeof str === 'string' && /\[([:.=+])(?:[^\[\]]|)+\1\]/.test(str);
+  return typeof str === 'string' && /\[([:.=+])(?:[^[\]]|)+\1\]/.test(str);
 };
 
 
@@ -123863,11 +123863,11 @@ var validate = exports._validate = function(/*Any*/instance,/*Object*/schema,/*O
 				if(schema.minLength && typeof value == 'string' && value.length < schema.minLength){
 					addError("must be at least " + schema.minLength + " characters long");
 				}
-				if(typeof schema.minimum !== undefined && typeof value == typeof schema.minimum &&
+				if(typeof schema.minimum !== "undefined" && typeof value == typeof schema.minimum &&
 						schema.minimum > value){
 					addError("must have a minimum value of " + schema.minimum);
 				}
-				if(typeof schema.maximum !== undefined && typeof value == typeof schema.maximum &&
+				if(typeof schema.maximum !== "undefined" && typeof value == typeof schema.maximum &&
 						schema.maximum < value){
 					addError("must have a maximum value of " + schema.maximum);
 				}
@@ -127586,8 +127586,8 @@ function reverse(object, prepender) {
 
 chars.escapeRegex = {
   '?': /\?/g,
-  '@': /\@/g,
-  '!': /\!/g,
+  '@': /@/g,
+  '!': /!/g,
   '+': /\+/g,
   '*': /\*/g,
   '(': /\(/g,
@@ -127679,7 +127679,7 @@ function expand(pattern, options) {
   var opts = glob.options;
 
   if (!utils.isGlob(pattern)) {
-    glob.pattern = glob.pattern.replace(/([\/.])/g, '\\$1');
+    glob.pattern = glob.pattern.replace(/([/.])/g, '\\$1');
     return glob;
   }
 
@@ -127771,7 +127771,7 @@ function expand(pattern, options) {
   glob._replace('/.', '/(?=.)\\.', true);
 
   // windows drives
-  glob._replace(/^(\w):([\\\/]+?)/gi, '(?=.)$1:$2', true);
+  glob._replace(/^(\w):([\\/]+?)/gi, '(?=.)$1:$2', true);
 
   // negate slashes in exclusion ranges
   if (glob.pattern.indexOf('[^') !== -1) {
@@ -127811,7 +127811,7 @@ function expand(pattern, options) {
     // ends with *, no slashes
     glob._replace(/(?!\/)\*$/, star, true);
     // has 'n*.' (partial wildcard w/ file extension)
-    glob._replace(/([^\/]+)\*/, '$1' + oneStar(true), true);
+    glob._replace(/([^/]+)\*/, '$1' + oneStar(true), true);
     // has '*'
     glob._replace('*', oneStar(opts.dot), true);
     glob._replace('?.', '?\\.', true);
@@ -127828,7 +127828,7 @@ function expand(pattern, options) {
     // escape '.abc' => '\\.abc'
     glob._replace(/\.([*\w]+)/g, '\\.$1');
     // fix '[^\\\\/]'
-    glob._replace(/\[\^[\\\/]+\]/g, qmark);
+    glob._replace(/\[\^[\\/]+\]/g, qmark);
     // '///' => '\/'
     glob._replace(/\/+/g, '\\/');
     // '\\\\\\' => '\\'
@@ -127846,7 +127846,7 @@ function expand(pattern, options) {
   glob._replace('[^\\/]', qmark);
 
   if (glob.pattern.length > 1) {
-    if (/^[\[?*]/.test(glob.pattern)) {
+    if (/^[[?*]/.test(glob.pattern)) {
       // only prepend the string if we don't want to match dotfiles
       glob.pattern = (opts.dot ? dotfiles : nodot) + glob.pattern;
     }
@@ -128020,8 +128020,8 @@ Glob.prototype.isNegated = function() {
 Glob.prototype.braces = function() {
   if (this.options.nobraces !== true && this.options.nobrace !== true) {
     // naive/fast check for imbalanced characters
-    var a = this.pattern.match(/[\{\(\[]/g);
-    var b = this.pattern.match(/[\}\)\]]/g);
+    var a = this.pattern.match(/[{([]/g);
+    var b = this.pattern.match(/[})\]]/g);
 
     // if imbalanced, don't optimize the pattern
     if (a && b && (a.length !== b.length)) {
@@ -128328,7 +128328,7 @@ function braces(str, arr, options) {
       return escapeCommas(str, arr, opts);
     case '\\.':
       return escapeDots(str, arr, opts);
-    case '\/.':
+    case '/.':
       return escapePaths(str, arr, opts);
     case ' ':
       return splitWhitespace(str);
@@ -128388,7 +128388,7 @@ function braces(str, arr, options) {
   while (len--) {
     var path = segs[i++];
 
-    if (/(\.[^.\/])/.test(path)) {
+    if (/(\.[^./])/.test(path)) {
       if (segsLength > 1) {
         return segs;
       } else {
@@ -128552,9 +128552,9 @@ function escapeDots(str, arr, opts) {
  */
 
 function escapePaths(str, arr, opts) {
-  str = str.split('\/.').join('__ESC_PATH__');
+  str = str.split('/.').join('__ESC_PATH__');
   return map(braces(str, arr, opts), function(ele) {
-    return ele.split('__ESC_PATH__').join('\/.');
+    return ele.split('__ESC_PATH__').join('/.');
   });
 }
 
@@ -128790,7 +128790,7 @@ var emojiByName = __webpack_require__(764);
 /**
  * regex to parse emoji in a string - finds emoji, e.g. :coffee:
  */
-var emojiNameRegex = /:([a-zA-Z0-9_\-\+]+):/g;
+var emojiNameRegex = /:([a-zA-Z0-9_\-+]+):/g;
 
 /**
  * regex to trim whitespace
@@ -129107,7 +129107,7 @@ module.exports = function normalizePath(str, stripTrailing) {
   if (typeof str !== 'string') {
     throw new TypeError('expected a string');
   }
-  str = str.replace(/[\\\/]+/g, '/');
+  str = str.replace(/[\\/]+/g, '/');
   if (stripTrailing !== false) {
     str = removeTrailingSeparator(str);
   }
@@ -129672,7 +129672,7 @@ module.exports = function parseGlob(glob) {
 
   tok.glob = parsed.glob;
   tok.base = parsed.base;
-  var segs = /([^\/]*)$/.exec(glob);
+  var segs = /([^/]*)$/.exec(glob);
 
   tok.path = {};
   tok.path.dirname = '';
@@ -129684,7 +129684,7 @@ module.exports = function parseGlob(glob) {
   tok.path.ext = '';
 
   if (isGlob(tok.path.dirname) && !tok.path.basename) {
-    if (!/\/$/.test(tok.glob)) {
+    if (!tok.glob.endsWith('/')) {
       tok.path.basename = tok.glob;
     }
     tok.path.dirname = tok.base;
@@ -129760,7 +129760,7 @@ function has(is, glob, ch) {
  */
 
 function escape(str) {
-  var re = /\{([^{}]*?)}|\(([^()]*?)\)|\[([^\[\]]*?)\]/g;
+  var re = /\{([^{}]*?)}|\(([^()]*?)\)|\[([^[\]]*?)\]/g;
   return str.replace(re, function (outter, braces, parens, brackets) {
     var inner = braces || parens || brackets;
     if (!inner) { return outter; }
@@ -129793,11 +129793,11 @@ var isWindows = process.platform === 'win32';
 // Regex to split a windows path into three parts: [*, device, slash,
 // tail] windows-only
 var splitDeviceRe =
-    /^([a-zA-Z]:|[\\\/]{2}[^\\\/]+[\\\/]+[^\\\/]+)?([\\\/])?([\s\S]*?)$/;
+    /^([a-zA-Z]:|[\\/]{2}[^\\/]+[\\/]+[^\\/]+)?([\\/])?([\s\S]*?)$/;
 
 // Regex to split the tail part of the above into [*, dir, basename, ext]
 var splitTailRe =
-    /^([\s\S]*?)((?:\.{1,2}|[^\\\/]+?|)(\.[^.\/\\]*|))(?:[\\\/]*)$/;
+    /^([\s\S]*?)((?:\.{1,2}|[^\\/]+?|)(\.[^./\\]*|))(?:[\\/]*)$/;
 
 var win32 = {};
 
@@ -129839,7 +129839,7 @@ win32.parse = function(pathString) {
 // Split a filename into [root, dir, basename, ext], unix version
 // 'root' is just a slash, or nothing.
 var splitPathRe =
-    /^(\/?|)([\s\S]*?)((?:\.{1,2}|[^\/]+?|)(\.[^.\/]*|))(?:[\/]*)$/;
+    /^(\/?|)([\s\S]*?)((?:\.{1,2}|[^/]+?|)(\.[^./]*|))(?:[/]*)$/;
 var posix = {};
 
 
@@ -137238,7 +137238,7 @@ module.exports = function resolve(x, options, callback) {
     if (/^(?:\.\.?(?:\/|$)|\/|([A-Za-z]:)?[/\\])/.test(x)) {
         var res = path.resolve(basedir, x);
         if (x === '..' || x.slice(-1) === '/') res += '/';
-        if (/\/$/.test(x) && res === basedir) {
+        if (x.endsWith('/') && res === basedir) {
             loadAsDirectory(res, opts.package, onfile);
         } else loadAsFile(res, opts.package, onfile);
     } else loadNodeModules(x, basedir, function (err, n, pkg) {
@@ -142435,7 +142435,7 @@ var TakeWhileSubscriber = /*@__PURE__*/ (function (_super) {
     };
     TakeWhileSubscriber.prototype.nextOrComplete = function (value, predicateResult) {
         var destination = this.destination;
-        if (Boolean(predicateResult)) {
+        if (predicateResult) {
             destination.next(value);
         }
         else {
@@ -147760,7 +147760,7 @@ function jsSprintf(ofmt)
 		arg = args.shift();
 		argn++;
 
-		if (flags.match(/[\' #]/)) {
+		if (flags.match(/[' #]/)) {
 			throw (jsError(ofmt, convposn, curconv,
 			    'uses unsupported flags'));
 		}

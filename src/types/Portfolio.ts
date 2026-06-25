@@ -42,6 +42,7 @@ export interface PortfolioOwner {
   email: string
   github?: string
   linkedin?: string
+  resumeUrl?: string
   location: string
   phone?: string
   skills: string[]
