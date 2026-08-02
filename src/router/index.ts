@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { usePortfolioStore } from '@/stores/portfolio'
 import { startLoading, stopLoading } from '@/composables/useRouteLoading'
+import { coverRoute, revealRoute } from '@/composables/useRouteTransition'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,16 +44,25 @@ const router = createRouter({
 })
 
 // Update page title on route change using owner name from store
-router.beforeEach((to) => {
+router.beforeEach(async (to, from) => {
   startLoading()
   const store = usePortfolioStore()
   const ownerName = store.owner?.name ?? 'Portfolio'
   const template = (to.meta.titleTemplate as string) ?? '{name} — Portfolio'
   document.title = template.replace('{name}', ownerName)
+
+  // Cover BEFORE the view swaps — that is the whole point. Skipped on first
+  // load, which has nothing to transition from.
+  if (from.name && to.name !== from.name) {
+    await coverRoute()
+  }
 })
 
-router.afterEach(() => {
+router.afterEach((to, from) => {
   stopLoading()
+  if (from.name && to.name !== from.name) {
+    void revealRoute()
+  }
 })
 
 export default router
