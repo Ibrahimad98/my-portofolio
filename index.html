@@ -21,7 +21,17 @@
   </head>
   <body>
     <div id="app">
-      <!-- Static splash shown instantly before Vue mounts (prevents white flash) -->
+      <!--
+        Painted instantly, before Vue mounts, so a refresh never flashes bare
+        white. It MUST be the same mark as SplashScreen.vue and BrandLoader.vue:
+        this used to be a stroked hexagon, which meant every refresh briefly
+        showed a loader from a design the site no longer uses.
+
+        Colours key off the `.dark` class the script above already applied — NOT
+        prefers-color-scheme. The site's theme comes from localStorage, so the OS
+        preference is the wrong signal and got it backwards for anyone whose
+        chosen theme differs from their system one.
+      -->
       <style>
         .pre-splash {
           position: fixed;
@@ -31,36 +41,64 @@
           align-items: center;
           justify-content: center;
           background: #fff;
+          --pre-ink: #000;
+          --pre-paper: #fff;
         }
-        @media (prefers-color-scheme: dark) {
-          .pre-splash { background: #18181b; }
-          .pre-splash svg path { color: #fafafa; }
+        .dark .pre-splash {
+          background: #0a0a0a;
+          --pre-ink: #fafafa;
+          --pre-paper: #0a0a0a;
         }
-        .pre-splash svg {
-          width: 100px;
-          height: 87px;
-          overflow: visible;
+        .pre-mark {
+          position: relative;
+          width: 80px;
+          height: 80px;
+          border: 1px solid var(--pre-ink);
+          background: var(--pre-paper);
+          overflow: hidden;
         }
-        .pre-splash .hex-path {
-          stroke: #18181b;
-          fill: none;
-          stroke-width: 3;
-          stroke-linejoin: round;
-          stroke-dasharray: 440;
-          stroke-dashoffset: 440;
-          animation: pre-draw 0.6s ease-out forwards;
+        .pre-fill {
+          position: absolute;
+          inset: 0;
+          background: var(--pre-ink);
+          transform-origin: bottom;
+          transform: scaleY(0);
+          animation: pre-fill 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
         }
-        @media (prefers-color-scheme: dark) {
-          .pre-splash .hex-path { stroke: #fafafa; }
+        .pre-initials {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font: 500 24px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+          letter-spacing: -0.02em;
+          color: #fff;
+          mix-blend-mode: difference;
         }
-        @keyframes pre-draw {
-          to { stroke-dashoffset: 0; }
+        .pre-tick {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 8px;
+          height: 8px;
+          background: var(--pre-ink);
+        }
+        @keyframes pre-fill {
+          0% { transform: scaleY(0); }
+          70% { transform: scaleY(0.85); }
+          100% { transform: scaleY(0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .pre-fill { animation: none; transform: scaleY(0.6); }
         }
       </style>
       <div class="pre-splash">
-        <svg viewBox="0 0 120 104" xmlns="http://www.w3.org/2000/svg">
-          <path class="hex-path" d="M60 2 L113.3 28 L113.3 76 L60 102 L6.7 76 L6.7 28 Z"/>
-        </svg>
+        <div class="pre-mark">
+          <span class="pre-fill"></span>
+          <span class="pre-initials">IA</span>
+          <span class="pre-tick"></span>
+        </div>
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
