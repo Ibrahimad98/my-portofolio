@@ -5,6 +5,9 @@ import AppHeader from '@/components/layout/AppHeader.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
 import SplashScreen from '@/components/layout/SplashScreen.vue'
 import PageLoader from '@/components/layout/PageLoader.vue'
+import PixelScene from '@/components/pixel/PixelScene.vue'
+import CloudTransition from '@/components/pixel/CloudTransition.vue'
+import WeaponPicker from '@/components/pixel/WeaponPicker.vue'
 import { usePortfolioStore } from '@/stores/portfolio'
 import { useRouteLoading } from '@/composables/useRouteLoading'
 
@@ -31,28 +34,38 @@ onMounted(() => {
   <!-- Page transition loader (route changes) -->
   <PageLoader :visible="routeLoading && !showSplash" />
 
-  <div v-show="!showSplash" class="min-h-screen flex flex-col bg-background text-foreground antialiased">
+  <!--
+    Ambient pixel world. Sits above the body background (bg-background from the
+    base layer) but below all content, so the site reads as sitting on top of the
+    world. Mounted once here, never per route.
+  -->
+  <PixelScene v-if="!showSplash" />
+
+  <!-- No bg-background here: an opaque wrapper would hide the scene entirely.
+       The body supplies the page background instead. -->
+  <div
+    v-show="!showSplash"
+    class="relative z-10 min-h-screen flex flex-col text-foreground antialiased"
+  >
     <AppHeader />
     <main class="flex-1">
-      <RouterView v-slot="{ Component }">
-        <Transition name="page" mode="out-in">
-          <component :is="Component" />
-        </Transition>
-      </RouterView>
+      <!--
+        No crossfade here. The cloud cover IS the page transition, and an
+        out-in fade on top of it kept the OLD view on screen for 150ms after
+        navigation, then faded the new one in over another 150ms — all of it
+        happening while the clouds were already parting. Swapping instantly
+        under full cover is the whole point.
+      -->
+      <RouterView />
     </main>
     <AppFooter />
   </div>
+
+  <!-- Weapon / holster control for the pixel character. -->
+  <WeaponPicker v-if="!showSplash" />
+
+  <!-- Cloud wipe between routes. Above everything, so it can actually hide the swap. -->
+  <CloudTransition />
 </template>
 
-<style scoped>
-/* Page transition — 150ms opacity fade */
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.15s ease;
-}
 
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
-}
-</style>
